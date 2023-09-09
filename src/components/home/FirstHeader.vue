@@ -26,7 +26,7 @@
             type="text"
           />
         </div>
-        <a @click.prevent="flip" href="#">
+        <a @click="flip" href="#">
           <box-icon
             style="
               opacity: 0.5;
@@ -190,6 +190,7 @@ const unflipMenu = ref(true)
 .search {
   width: 150px;
   //margin-top: 13px;
+  box-sizing: border-box;
   margin-right: 15px;
   /*background-color: #0ac2f3;*/
   height: 36px;
@@ -199,6 +200,7 @@ const unflipMenu = ref(true)
   width: 100px;
   height: 25px;
   position: absolute;
+  box-sizing: border-box;
   font-size: 16px;
   z-index: 3;
   top: 50%;
