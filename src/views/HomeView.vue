@@ -23,7 +23,7 @@ import SecondList from '@/components/home/SecondList.vue'
 .todo-container {
   width: 100%;
   height: 900px;
-  background-image: url('@/assets/picture/background.png');
+  background-image: url('@/assets/picture/background.jpg');
   background-size: cover;
   position: relative;
 }
