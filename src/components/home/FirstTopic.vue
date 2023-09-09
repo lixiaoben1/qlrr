@@ -17,7 +17,11 @@
           ></box-icon>
           <!--          <img style="opacity: 0.5; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)" src="../assets/picture/图标/bx-shopping-bag.svg" alt="" />-->
         </span>
-        <span data-id="1" style="vertical-align: middle; margin-left: 10px">Shopping store</span>
+        <span
+          data-id="1"
+          style="vertical-align: middle; margin-left: 10px; font-family: '得意黑 斜体', serif"
+          >Shopping store</span
+        >
       </div>
       <hr />
       <div class="topic-item">
@@ -34,7 +38,11 @@
             size="20px"
           ></box-icon>
         </span>
-        <span data-id="2" style="vertical-align: middle; margin-left: 10px">Chat-gpt</span>
+        <span
+          data-id="2"
+          style="vertical-align: middle; margin-left: 10px; font-family: '得意黑 斜体', serif"
+          >Chat-gpt</span
+        >
       </div>
       <hr />
       <div class="topic-item">
@@ -51,7 +59,11 @@
             size="20px"
           ></box-icon
         ></span>
-        <span data-id="3" style="vertical-align: middle; margin-left: 10px">Entertainment</span>
+        <span
+          data-id="3"
+          style="vertical-align: middle; margin-left: 10px; font-family: '得意黑 斜体', serif"
+          >Entertainment</span
+        >
       </div>
     </div>
   </div>
@@ -67,7 +79,7 @@ export default {
 /*region主题*/
 .topic-nav {
   position: absolute;
-  font-family: 'Microsoft YaHei', 'alimama', serif;
+  font-family: '得意黑 斜体', serif;
   background-image: linear-gradient(to right, #002b79, #216cc4);
   background-clip: text;
   -webkit-background-clip: text;

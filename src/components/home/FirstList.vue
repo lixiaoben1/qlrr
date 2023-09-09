@@ -127,7 +127,7 @@ body {
 }
 .picture-3d {
   width: 100%;
-  font-family: 'alimama', serif;
+  font-family: '得意黑 斜体', serif;
   font-weight: bold;
   //padding-left: 25%;
   margin-left: 20%;

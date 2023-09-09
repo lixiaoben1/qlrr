@@ -28,7 +28,7 @@
           <el-form-item class="el-input2" prop="password">
             <el-input
               v-model="formModel.password"
-              :prefix-icon="User"
+              :prefix-icon="Lock"
               placeholder="请输入密码"
               type="password"
             ></el-input>
@@ -42,7 +42,7 @@
           <box-icon style="margin-top: 5px" size="25px" name="chevron-right"></box-icon>
         </button>
         <div class="toggleLogin">
-          <a style="cursor: pointer" @click="isLogin = false">没有账号?去注册</a>
+          <a style="cursor: pointer" @click="toRegister">没有账号?去注册</a>
         </div>
       </div>
       <!--注册页-->
@@ -80,7 +80,7 @@
           <box-icon style="margin-top: 5px" size="25px" name="chevron-right"></box-icon>
         </button>
         <div class="toggleLogin">
-          <a style="cursor: pointer" @click="isLogin = true">已有账户?去登陆</a>
+          <a style="cursor: pointer" @click="toLogin">已有账户?去登陆</a>
         </div>
       </div>
     </div>
@@ -89,9 +89,10 @@
 </template>
 <script setup>
 import { User, Lock } from '@element-plus/icons-vue'
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
+import { gsap } from 'gsap'
 
 const useStore = useUserStore()
 const isLogin = ref(true)
@@ -152,6 +153,16 @@ const login = async () => {
   }
 }
 
+onMounted(() => {
+  gsap.from('.glass', {
+    duration: 1,
+    y: -80,
+    ease: 'power3.out',
+    opacity: 0,
+    // delay: 0.2,
+    stagger: 0.1
+  })
+})
 watch(isLogin, () => {
   formModel.value = {
     username: '',
@@ -159,6 +170,12 @@ watch(isLogin, () => {
     repassword: ''
   }
 })
+const toLogin = () => {
+  isLogin.value = true
+}
+const toRegister = () => {
+  isLogin.value = false
+}
 </script>
 
 <style scoped>

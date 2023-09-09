@@ -13,6 +13,10 @@ const router = createRouter({
       component: () => import('@/views/UserProfile.vue')
     },
     {
+      path: '/introduction',
+      component: () => import('@/views/introduction.vue')
+    },
+    {
       path: '/login',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route

@@ -1,19 +1,7 @@
 <template>
   <div class="top-banner">
-    <box-icon
-      v-show="!unflipMenu"
-      @click="unflipMenu = !unflipMenu"
-      pull="right"
-      size="40px"
-      name="x"
-    ></box-icon>
-    <box-icon
-      v-show="unflipMenu"
-      @click="unflipMenu = !unflipMenu"
-      pull="right"
-      size="40px"
-      name="menu"
-    ></box-icon>
+    <box-icon v-show="!unflipMenu" @click="flipMenu" pull="right" size="40px" name="x"></box-icon>
+    <box-icon v-show="unflipMenu" @click="flipMenu" pull="right" size="40px" name="menu"></box-icon>
     <div class="logo">QLRR</div>
     <div class="topbar-nav">
       <div class="search">
@@ -65,9 +53,10 @@
 </template>
 
 <script setup>
-import { ref, nextTick } from 'vue'
+import { ref, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import { gsap } from 'gsap'
 
 const unflip = ref(true)
 const autoFocus = ref(null)
@@ -93,6 +82,20 @@ const toLogin = () => {
 }
 
 const unflipMenu = ref(true)
+const flipMenu = () => {
+  unflipMenu.value = !unflipMenu.value
+}
+
+watch(unflipMenu, () => {
+  gsap.from('.menu-item li', {
+    duration: 1,
+    x: -80,
+    ease: 'power3.out',
+    opacity: 0,
+    // delay: 0.2,
+    stagger: 0.05
+  })
+})
 </script>
 
 <style scoped>

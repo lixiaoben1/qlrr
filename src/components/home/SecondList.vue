@@ -55,7 +55,7 @@ export default {
 <style scoped>
 .wisdom {
   position: absolute;
-  font-family: 'Microsoft YaHei', 'alimama', serif;
+  font-family: '得意黑 斜体', serif;
   background-image: linear-gradient(to right, #4e139b, #6813e7);
   background-clip: text;
   -webkit-background-clip: text;
