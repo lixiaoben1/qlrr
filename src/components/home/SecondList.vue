@@ -19,11 +19,11 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, Scrollbar } from 'swiper/modules'
+// import { Autoplay, Scrollbar } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import { reactive } from 'vue'
-const modules = [Autoplay, Scrollbar]
+// const modules = [Autoplay, Scrollbar]
 
 const swiperValue = reactive({
   slidesPerView: 2.26,

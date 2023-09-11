@@ -36,12 +36,12 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, Scrollbar, FreeMode } from 'swiper/modules'
+// import { Autoplay, Scrollbar, FreeMode } from 'swiper/modules'
 import { useRouter } from 'vue-router'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import { reactive, ref } from 'vue'
-const modules = [Autoplay, Scrollbar, FreeMode]
+// const modules = [Autoplay, Scrollbar, FreeMode]
 const router = useRouter()
 
 const swiperValue = reactive({
