@@ -1,70 +1,61 @@
 <template>
-  <div>
-    <div class="wisdom">wisdom</div>
-    <div class="swiperBox">
-      <div id="swiper2" class="swiper-container mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="@/assets/picture/主页3d图/1.svg" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="@/assets/picture/主页3d图/2.svg" alt="" />
-          </div>
-        </div>
-
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </div>
+  <Swiper
+    ref="swiper1"
+    class="swiper-container"
+    :modules="modules"
+    :slidesPerView="2.26"
+    :slides-offset-before="swiperValue.slidesOffsetBefore"
+    space-between="15"
+    pagination.clickable="true"
+  >
+    <swiper-slide class="swiper-slide">
+      <img src="@/assets/picture/主页3d图/1.svg" alt="" />
+    </swiper-slide>
+    <swiper-slide class="swiper-slide">
+      <img src="@/assets/picture/主页3d图/2.svg" alt="" />
+    </swiper-slide>
+  </Swiper>
 </template>
 
-<script>
-import Swiper from 'swiper'
-import 'swiper/css/swiper.min.css'
-export default {
-  name: 'FirstList',
-  mounted() {
-    new Swiper('#swiper2', {
-      slidesPerView: 2.22,
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Scrollbar } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import { reactive } from 'vue'
+const modules = [Autoplay, Scrollbar]
 
-      slidesOffsetBefore: window.innerWidth * 0.05,
-      spaceBetween: 15,
-      pagination: {
-        clickable: true
-      }
-      // direction: 'vertical', // 垂直切换选项
-      // loop: true, // 循环模式选项
-      // 如果需要分页器
-      // pagination: {
-      //   el: '.swiper-pagination'
-      // },
-      // 如果需要前进后退按钮
-      // navigation: {
-      //   nextEl: '.swiper-button-next',
-      //   prevEl: '.swiper-button-prev'
-      // }
-      // 如果需要滚动条
-      // scrollbar: {
-      //   el: '.swiper-scrollbar'
-      // }
-    })
-  }
-}
+const swiperValue = reactive({
+  slidesPerView: 2.26,
+  slidesOffsetBefore: window.innerWidth * 0.05
+})
+// new Swiper('#swiper2', {
+//   slidesPerView: 2.22,
+//
+//   slidesOffsetBefore: window.innerWidth * 0.05,
+//   spaceBetween: 15,
+//   pagination: {
+//     clickable: true
+//   }
+// direction: 'vertical', // 垂直切换选项
+// loop: true, // 循环模式选项
+// 如果需要分页器
+// pagination: {
+//   el: '.swiper-pagination'
+// },
+// 如果需要前进后退按钮
+// navigation: {
+//   nextEl: '.swiper-button-next',
+//   prevEl: '.swiper-button-prev'
+// }
+// 如果需要滚动条
+// scrollbar: {
+//   el: '.swiper-scrollbar'
+// }
+//   })
 </script>
 
 <style scoped>
-.wisdom {
-  position: absolute;
-  font-family: '得意黑 斜体', serif;
-  background-image: linear-gradient(to right, #4e139b, #6813e7);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  top: 580px;
-  left: 20px;
-  font-size: 20px;
-  font-weight: bold;
-}
 /*region轮播图模块*/
 body {
   /*background: #eee;*/

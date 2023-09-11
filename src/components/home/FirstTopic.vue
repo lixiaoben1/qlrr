@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div class="topic-nav">web-nav</div>
     <div class="topic">
       <div class="topic-item">
         <span class="topic-item-round">
@@ -69,26 +68,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'FirstTopic'
-}
+<script setup>
+import 'boxicons'
 </script>
 
 <style scoped>
 /*region主题*/
-.topic-nav {
-  position: absolute;
-  font-family: '得意黑 斜体', serif;
-  background-image: linear-gradient(to right, #002b79, #216cc4);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  top: 310px;
-  left: 20px;
-  font-size: 20px;
-  font-weight: bold;
-}
 
 .topic {
   width: 90%;

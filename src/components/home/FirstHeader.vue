@@ -1,7 +1,19 @@
 <template>
   <div class="top-banner">
-    <box-icon v-show="!unflipMenu" @click="flipMenu" pull="right" size="40px" name="x"></box-icon>
-    <box-icon v-show="unflipMenu" @click="flipMenu" pull="right" size="40px" name="menu"></box-icon>
+    <box-icon
+      v-show="!unflipMenu"
+      @click="unflipMenu = !unflipMenu"
+      pull="right"
+      size="40px"
+      name="x"
+    ></box-icon>
+    <box-icon
+      v-show="unflipMenu"
+      @click="unflipMenu = !unflipMenu"
+      pull="right"
+      size="40px"
+      name="menu"
+    ></box-icon>
     <div class="logo">QLRR</div>
     <div class="topbar-nav">
       <div class="search">
@@ -48,16 +60,16 @@
     </ul>
   </div>
   <Transition name="masked">
-    <div class="mask" v-show="!unflipMenu"></div>
+    <div @click="mask" class="mask" v-show="!unflipMenu"></div>
   </Transition>
 </template>
 
 <script setup>
-import { ref, nextTick, watch } from 'vue'
+import { ref, nextTick, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { gsap } from 'gsap'
-
+import 'boxicons'
 const unflip = ref(true)
 const autoFocus = ref(null)
 const router = useRouter()
@@ -82,19 +94,46 @@ const toLogin = () => {
 }
 
 const unflipMenu = ref(true)
-const flipMenu = () => {
+
+let tween
+onMounted(() => {
+  tween = gsap.to('.login-top', {
+    duration: 1,
+    rotationY: 360,
+    repeat: 1,
+    delay: 1
+  })
+})
+const mask = () => {
   unflipMenu.value = !unflipMenu.value
 }
 
 watch(unflipMenu, () => {
-  gsap.from('.menu-item li', {
-    duration: 1,
-    x: -80,
-    ease: 'power3.out',
-    opacity: 0,
-    // delay: 0.2,
-    stagger: 0.05
-  })
+  if (unflipMenu.value) {
+    gsap.to('.menu-item>*', { x: -200, opacity: 0 })
+  } else {
+    gsap.fromTo(
+      '.menu-item>*',
+      { opacity: 0, x: -200 },
+      {
+        duration: 0.8,
+        x: 0,
+        ease: 'power3.out',
+        opacity: 1,
+        delay: 0.1,
+        stagger: 0.1
+      }
+    )
+    tween.restart()
+  }
+
+  // gsap.fromTo(
+  //   '.menu-item>*',
+  //   {
+  //     duration: 0
+  //   },
+  //   { opacity: 0, x: -10 }
+  // )
 })
 </script>
 
@@ -124,7 +163,7 @@ watch(unflipMenu, () => {
   z-index: 2000;
   height: 100%;
   background-color: #ffffff;
-  opacity: 0;
+  opacity: 1;
   transition: 0.3s all ease-in-out;
 }
 .menuPopUp {
@@ -146,6 +185,9 @@ watch(unflipMenu, () => {
 }
 .menu-item li {
   margin: 15px 0;
+}
+.menu-item li:hover {
+  color: mediumpurple;
 }
 .right-arrow {
   float: right;
@@ -187,6 +229,7 @@ watch(unflipMenu, () => {
   background-position-x: 0;
   -webkit-background-clip: text;
   color: transparent;
+  user-select: none;
   animation: logo 3s linear infinite;
 }
 
@@ -222,7 +265,7 @@ watch(unflipMenu, () => {
   background-color: red;
   position: absolute;
   right: 0;
-  transition: all 0.2s;
+  transition: all 0.4s;
   border-radius: 18px;
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.5);
@@ -236,7 +279,7 @@ watch(unflipMenu, () => {
   background-color: red;
   position: absolute;
   right: 0;
-  transition: all 0.2s;
+  transition: all 0.4s;
   border-radius: 18px;
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.5);

@@ -1,69 +1,61 @@
 <template>
-  <div class="swiperBox">
-    <div id="swiper1" class="swiper-container mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="@/assets/picture/主页3d图/5.svg" alt="" />
-          <div class="picture-3d">resume</div>
-          <div class="picture-3d">个人简介</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="@/assets/picture/主页3d图/3.svg" alt="" />
-          <div class="picture-3d">honorary</div>
-          <div class="picture-3d">荣誉证书</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="@/assets/picture/主页3d图/7.svg" alt="" />
-          <div class="picture-3d">ID-design</div>
-          <div class="picture-3d">产品设计</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="@/assets/picture/主页3d图/4.svg" alt="" />
-          <div class="picture-3d">more</div>
-          <div class="picture-3d">敬请期待！</div>
-        </div>
-        <!--          <div class="swiper-slide">Slide 5</div>-->
-        <!--          <div class="swiper-slide">Slide 6</div>-->
-        <!--          <div class="swiper-slide">Slide 7</div>-->
-        <!--          <div class="swiper-slide">Slide 8</div>-->
-        <!--          <div class="swiper-slide">Slide 9</div>-->
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
+  <Swiper
+    ref="swiper1"
+    class="swiper-container"
+    :modules="modules"
+    :slidesPerView="2.26"
+    :slides-offset-before="swiperValue.slidesOffsetBefore"
+    space-between="15"
+    pagination.clickable="true"
+    :freeMode="true"
+    @swiper="onSwiper"
+  >
+    <!-- shadow -->
+    <swiper-slide class="swiper-slide">
+      <img @click="router.push('/introduction')" src="@/assets/picture/主页3d图/5.svg" alt="" />
+      <div class="picture-3d">resume</div>
+      <div class="picture-3d">个人简介</div>
+    </swiper-slide>
+    <swiper-slide class="swiper-slide">
+      <img src="@/assets/picture/主页3d图/3.svg" alt="" />
+      <div class="picture-3d">honorary</div>
+      <div class="picture-3d">荣誉证书</div>
+    </swiper-slide>
+    <swiper-slide class="swiper-slide">
+      <img src="@/assets/picture/主页3d图/7.svg" alt="" />
+      <div class="picture-3d">ID-design</div>
+      <div class="picture-3d">产品设计</div>
+    </swiper-slide>
+    <swiper-slide class="swiper-slide">
+      <img src="@/assets/picture/主页3d图/4.svg" alt="" />
+      <div class="picture-3d">more</div>
+      <div class="picture-3d">敬请期待！</div>
+    </swiper-slide>
+  </Swiper>
 </template>
 
-<script>
-import Swiper from 'swiper'
-import 'swiper/css/swiper.min.css'
-export default {
-  name: 'FirstList',
-  mounted() {
-    new Swiper('#swiper1', {
-      slidesPerView: 2.26,
-      slidesOffsetBefore: window.innerWidth * 0.05,
-      spaceBetween: 15,
-      pagination: {
-        clickable: true
-      }
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Scrollbar, FreeMode } from 'swiper/modules'
+import { useRouter } from 'vue-router'
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import { reactive, ref } from 'vue'
+const modules = [Autoplay, Scrollbar, FreeMode]
+const router = useRouter()
 
-      // direction: 'vertical', // 垂直切换选项
-      // loop: true, // 循环模式选项
-      // 如果需要分页器
-      // pagination: {
-      //   el: '.swiper-pagination'
-      // },
-      // 如果需要前进后退按钮
-      // navigation: {
-      //   nextEl: '.swiper-button-next',
-      //   prevEl: '.swiper-button-prev'
-      // }
-      // 如果需要滚动条
-      // scrollbar: {
-      //   el: '.swiper-scrollbar'
-      // }
-    })
-  }
+const swiperValue = reactive({
+  slidesPerView: 2.26,
+  slidesOffsetBefore: window.innerWidth * 0.05
+})
+const swiper = ref()
+const onSwiper = (swiper) => {
+  setTimeout(() => {
+    swiper.slideTo(1, 1000, false)
+  }, 1000)
+  setTimeout(() => {
+    swiper.slideTo(0, 1000, false)
+  }, 2000)
 }
 </script>
 

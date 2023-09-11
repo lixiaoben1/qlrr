@@ -46,6 +46,30 @@ onMounted(() => {
   })
 })
 
+onMounted(() => {
+  ScrollTrigger.create({
+    trigger: '.demoPictrue img',
+    start: '0',
+    markers: true,
+    end: '800',
+    scrub: true,
+    animation: gsap.fromTo(
+      '.demoPictrue img',
+      { rotate: -5, y: 0 },
+      {
+        duration: 1,
+        rotate: 100,
+        skewY: -5,
+        x: 500,
+        y: -150,
+        ease: 'power3.inOut',
+        stagger: 0.05,
+        opacity: 1
+        // repeat: 100
+      }
+    )
+  })
+})
 // onMounted(() => {
 //   gsap.from('.circleb li', {
 //     duration: 1,
@@ -72,6 +96,13 @@ onMounted(() => {
 </script>
 
 <template>
+  <div style="height: 844px"></div>
+  <div class="demoPictrue">
+    <img class="pictrue" src="@/assets/picture/slider01.jpg" alt="" />
+    <img class="pictrue" src="@/assets/picture/slider02.jpg" alt="" />
+    <img class="pictrue" src="@/assets/picture/slider03.jpg" alt="" />
+  </div>
+  <hr />
   <ul style="display: flex; flex-wrap: wrap" class="circleb" ref="circle">
     <li v-for="(item, index) in 72" class="circle" :ref="index"></li>
   </ul>
@@ -81,7 +112,8 @@ onMounted(() => {
   <div class="videobox" style="width: 100%">
     <video
       style="width: 100%"
-      src="https://media.w3.org/2010/05/sintel/trailer.mp4"
+      preload
+      src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4 "
       class="video"
       muted
     ></video>
@@ -89,8 +121,15 @@ onMounted(() => {
 </template>
 
 <style scoped>
+body {
+  width: 100%;
+}
+
 button {
   width: 50px;
+}
+.pictrue {
+  width: 60%;
 }
 .circle {
   width: 100px;

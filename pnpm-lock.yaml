@@ -24,8 +24,8 @@ dependencies:
     specifier: ^3.2.0
     version: 3.2.0(pinia@2.1.6)
   swiper:
-    specifier: '5'
-    version: 5.4.5
+    specifier: '9'
+    version: 9.4.1
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -844,12 +844,6 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
-
-  /dom7@2.1.5:
-    resolution: {integrity: sha512-xnhwVgyOh3eD++/XGtH+5qBwYTgCm0aW91GFgPJ3XG+jlsRLyJivnbP0QmUBFhI+Oaz9FV0s7cxgXHezwOEBYA==}
-    dependencies:
-      ssr-window: 2.0.0
-    dev: false
 
   /element-plus@2.3.12(vue@3.3.4):
     resolution: {integrity: sha512-fAWpbKCyt+l1dsqSNPOs/F/dBN4Wp5CGAyxbiS5zqDwI4q3QPM+LxLU2h3GUHMIBtMGCvmsG98j5HPMkTKkvcA==}
@@ -1925,8 +1919,8 @@ packages:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
 
-  /ssr-window@2.0.0:
-    resolution: {integrity: sha512-NXzN+/HPObKAx191H3zKlYomE5WrVIkoCB5IaSdvKokxTpjBdWfr0RaP+1Z5KOfDT0ZVz+2tdtiBkhsEQ9p+0A==}
+  /ssr-window@4.0.2:
+    resolution: {integrity: sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==}
     dev: false
 
   /strip-ansi@6.0.1:
@@ -1969,13 +1963,11 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /swiper@5.4.5:
-    resolution: {integrity: sha512-7QjA0XpdOmiMoClfaZ2lYN6ICHcMm72LXiY+NF4fQLFidigameaofvpjEEiTQuw3xm5eksG5hzkaRsjQX57vtA==}
+  /swiper@9.4.1:
+    resolution: {integrity: sha512-1nT2T8EzUpZ0FagEqaN/YAhRj33F2x/lN6cyB0/xoYJDMf8KwTFT3hMOeoB8Tg4o3+P/CKqskP+WX0Df046fqA==}
     engines: {node: '>= 4.7.0'}
-    requiresBuild: true
     dependencies:
-      dom7: 2.1.5
-      ssr-window: 2.0.0
+      ssr-window: 4.0.2
     dev: false
 
   /synckit@0.8.5:
