@@ -104,6 +104,9 @@ onMounted(() => {
     delay: 1
   })
 })
+onMounted(() => {
+  gsap.set('.menu-item>*', { x: -200, opacity: 0 })
+})
 const mask = () => {
   unflipMenu.value = !unflipMenu.value
 }
@@ -114,7 +117,7 @@ watch(unflipMenu, () => {
   } else {
     gsap.fromTo(
       '.menu-item>*',
-      { opacity: 0, x: -200 },
+      { x: -200, opacity: 0 },
       {
         duration: 0.8,
         x: 0,
@@ -162,8 +165,7 @@ watch(unflipMenu, () => {
   left: -500px;
   z-index: 2000;
   height: 100%;
-  background-color: #ffffff;
-  opacity: 1;
+  background-color: rgba(255, 255, 255, 0);
   transition: 0.3s all ease-in-out;
 }
 .menuPopUp {
@@ -172,8 +174,6 @@ watch(unflipMenu, () => {
   left: 0;
   z-index: 2000;
   height: 100%;
-  background-color: #ffffff;
-  opacity: 1;
   transition: 0.3s all ease-in-out;
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.8);

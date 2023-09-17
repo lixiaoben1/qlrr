@@ -17,6 +17,9 @@ dependencies:
   gsap:
     specifier: ^3.12.2
     version: 3.12.2
+  konva:
+    specifier: ^9.2.1
+    version: 9.2.1
   pinia:
     specifier: ^2.1.6
     version: 2.1.6(vue@3.3.4)
@@ -29,9 +32,15 @@ dependencies:
   vue:
     specifier: ^3.3.4
     version: 3.3.4
+  vue-konva:
+    specifier: ^3.0.2
+    version: 3.0.2(konva@9.2.1)
   vue-router:
     specifier: ^4.2.4
     version: 4.2.4(vue@3.3.4)
+  vue-waterfall-plugin-next:
+    specifier: ^2.2.3
+    version: 2.2.3(vue@3.3.4)
 
 devDependencies:
   '@rushstack/eslint-patch':
@@ -617,6 +626,10 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
     dev: true
+
+  /animate.css@4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
+    dev: false
 
   /ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -1400,6 +1413,10 @@ packages:
     dependencies:
       json-buffer: 3.0.1
     dev: true
+
+  /konva@9.2.1:
+    resolution: {integrity: sha512-/D9mZttzjqrkjVPlWyJirdBjFJ/uafrFFR5BD41PsFUX+ctqmoFZjcnjs/ag6YnZNEVsU4/E9dRaH5FH9Y4cLw==}
+    dev: false
 
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -2193,6 +2210,15 @@ packages:
       - supports-color
     dev: true
 
+  /vue-konva@3.0.2(konva@9.2.1):
+    resolution: {integrity: sha512-FNWKtPPVDihNuQcq7F4GzuVPkPaEfg8lnWezpRqgiC2VetdvONOiYOFD800jNL5kt/lEYnSOYvhqqdTPbv2c8w==}
+    engines: {node: '>= 4.0.0', npm: '>= 3.0.0'}
+    peerDependencies:
+      konva: '>7'
+    dependencies:
+      konva: 9.2.1
+    dev: false
+
   /vue-router@4.2.4(vue@3.3.4):
     resolution: {integrity: sha512-9PISkmaCO02OzPVOMq2w82ilty6+xJmQrarYZDkjZBfl4RvYAlt4PKnEX21oW4KTtWfa9OuO/b3qk1Od3AEdCQ==}
     peerDependencies:
@@ -2200,6 +2226,27 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.5.0
       vue: 3.3.4
+    dev: false
+
+  /vue-waterfall-plugin-next@2.2.0(vue@3.3.4):
+    resolution: {integrity: sha512-rhrTdAlBnMWWt6737L+E08A7itgK3wHTy1NsSDgR9EPiBPuHYlth8jL2/hp2gIMAS4XUxJBtitfNUyK5qynkEA==}
+    dependencies:
+      animate.css: 4.1.1
+      element-plus: 2.3.12(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: false
+
+  /vue-waterfall-plugin-next@2.2.3(vue@3.3.4):
+    resolution: {integrity: sha512-GF+7BXFEtIPpC1QotiG2Tvzop73LDsSqpQ1CN8iclOYMxRlgHmhmLTLVq36X50NIyL8NXs4MrhRBJaGQxzcvJg==}
+    dependencies:
+      animate.css: 4.1.1
+      element-plus: 2.3.12(vue@3.3.4)
+      vue-waterfall-plugin-next: 2.2.0(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
   /vue@3.3.4:

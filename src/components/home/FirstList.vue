@@ -12,7 +12,7 @@
   >
     <!-- shadow -->
     <swiper-slide class="swiper-slide">
-      <img @click="router.push('/introduction')" src="@/assets/picture/主页3d图/5.svg" alt="" />
+      <img @click="router.push('/picture')" src="@/assets/picture/主页3d图/5.svg" alt="" />
       <div class="picture-3d">resume</div>
       <div class="picture-3d">个人简介</div>
     </swiper-slide>
@@ -35,6 +35,7 @@
 </template>
 
 <script setup>
+// import Swiper from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 // import { Autoplay, Scrollbar, FreeMode } from 'swiper/modules'
 import { useRouter } from 'vue-router'
