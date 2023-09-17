@@ -182,12 +182,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
-canvas {
-  position: absolute;
-}
 .firstPage {
   height: 100vh;
   position: relative;
+  overflow: hidden;
   background-color: #000000;
 }
 .hello {
