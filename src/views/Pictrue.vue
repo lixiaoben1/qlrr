@@ -22,7 +22,21 @@ gsap.registerPlugin(ScrollTrigger)
 // })
 onMounted(() => {
   gsap.fromTo(
-    ['.hello', '#canvas'],
+    ['#canvas'],
+    {
+      opacity: 0,
+      scale: 1
+    },
+    {
+      delay: 0,
+      duration: 1,
+      scale: devicePixelRatio,
+      opacity: 1,
+      stagger: 0.5
+    }
+  )
+  gsap.fromTo(
+    ['.hello'],
     {
       opacity: 0,
       scale: 0.5
@@ -54,7 +68,7 @@ onMounted(() => {
         })
 
         tl.addLabel('start').fromTo(
-          ['.hello', '#canvas'],
+          ['.hello'],
           {
             opacity: 1,
             scale: 1
@@ -63,6 +77,18 @@ onMounted(() => {
             scale: 1.5,
             opacity: 0
           }
+        )
+        tl.addLabel('startCanvas').fromTo(
+          ['#canvas'],
+          {
+            opacity: 1,
+            scale: devicePixelRatio
+          },
+          {
+            scale: devicePixelRatio * 2,
+            opacity: 0
+          },
+          '<'
         )
         tl.addLabel('appleName').fromTo(
           ['.appleName'],
@@ -92,13 +118,15 @@ onMounted(() => {
     }
   )
 })
-onMounted(() => {})
+onMounted(() => {
+  console.log(window.devicePixelRatio)
+})
 // region的canvas部分
 onMounted(() => {
   let canvas = document.getElementById('canvas'),
     $ = canvas.getContext('2d'),
-    w = (canvas.width = window.innerWidth),
-    h = (canvas.height = window.innerHeight),
+    w = (canvas.width = window.innerWidth * devicePixelRatio),
+    h = (canvas.height = window.innerHeight * devicePixelRatio),
     t = 0,
     num = 450,
     u = 0,
@@ -136,6 +164,7 @@ onMounted(() => {
       g.addColorStop(1, `hsla( ${_u},10%, 30%, 1)`)
       $.strokeStyle = g
       $.stroke()
+      console.log(w, h)
     }
     t += _t
     u -= 0.2
@@ -148,7 +177,7 @@ onMounted(() => {
 
 <template>
   <div class="firstPage">
-    <canvas id="canvas"></canvas>
+    <canvas style="width: 100%; height: 100%" id="canvas"></canvas>
     <div class="card"><div class="mask"></div></div>
     <div class="hello">产品设计</div>
     <div

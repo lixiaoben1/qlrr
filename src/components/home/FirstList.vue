@@ -6,7 +6,6 @@
     :slidesPerView="2.26"
     :slides-offset-before="swiperValue.slidesOffsetBefore"
     space-between="15"
-    pagination.clickable="true"
     :freeMode="true"
     @swiper="onSwiper"
   >
@@ -117,6 +116,7 @@ body {
   margin-top: 20px;
   margin-left: 20%;
   margin-right: 20%;
+  cursor: pointer;
 }
 .picture-3d {
   width: 100%;
