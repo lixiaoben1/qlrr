@@ -51,6 +51,9 @@ onMounted(() => {
         gsap.set('.apple', {
           opacity: 0
         })
+        gsap.set('.fan', {
+          opacity: 0
+        })
         gsap.set('.appleName', {
           opacity: 0
         })
@@ -61,8 +64,9 @@ onMounted(() => {
           scrollTrigger: {
             trigger: '.firstPage',
             start: 'top top',
-            end: '+=1500',
+            end: '+=5500',
             scrub: true,
+            markers: true,
             pin: true
           }
         })
@@ -102,7 +106,7 @@ onMounted(() => {
           },
           '<0.3'
         )
-        tl.addLabel('apple').fromTo(
+        tl.addLabel('appleCome').fromTo(
           ['.apple'],
           {
             opacity: 0,
@@ -113,6 +117,31 @@ onMounted(() => {
             opacity: 1
           },
           '<0.15'
+        )
+
+        tl.addLabel('appleLeave').fromTo(
+          ['.apple'],
+          {
+            y: 0
+          },
+          {
+            y: -200,
+            opacity: 0
+          },
+          '>0.1'
+        )
+        tl.addLabel('fanCome').fromTo(
+          ['.fan'],
+          { opacity: 0.8, left: -100, y: 300 },
+          {
+            stagger: 0.6,
+            ease: 'power1.out',
+            duration: 2,
+            y: -300,
+            left: 580,
+            opacity: 1
+          },
+          '<0.1'
         )
       }
     }
@@ -164,7 +193,6 @@ onMounted(() => {
       g.addColorStop(1, `hsla( ${_u},10%, 30%, 1)`)
       $.strokeStyle = g
       $.stroke()
-      console.log(w, h)
     }
     t += _t
     u -= 0.2
@@ -176,38 +204,58 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="firstPage">
-    <canvas style="width: 100%; height: 100%" id="canvas"></canvas>
-    <div class="card"><div class="mask"></div></div>
-    <div class="hello">产品设计</div>
-    <div
-      class="appleName"
-      style="
-        margin-bottom: 50px;
-        color: white;
-        font-size: 40px;
-        position: absolute;
-        top: 25%;
-        left: 10%;
-      "
-    >
-      苹果全家桶
+  <div>
+    <div class="firstPage">
+      <canvas style="width: 100%; height: 100%" id="canvas"></canvas>
+      <div class="card"><div class="mask"></div></div>
+      <div class="hello">产品设计</div>
+      <div
+        class="appleName"
+        style="
+          margin-bottom: 50px;
+          color: white;
+          font-size: 40px;
+          position: absolute;
+          top: 25%;
+          left: 10%;
+        "
+      ></div>
+      <div class="apple">
+        <img
+          style="width: 180%; transform: translateX(-11%)"
+          src="@/assets/picture/我的渲染图/33.jpg"
+          alt=""
+        />
+      </div>
+      <div class="fan">
+        <img
+          style="width: 190%; transform: translateX(-18%)"
+          src="@/assets/picture/我的渲染图/IMG_20220611_122334.jpg"
+          alt=""
+        />
+      </div>
+      <div class="fan">
+        <img
+          style="width: 110%; transform: translateX(-3%)"
+          src="@/assets/picture/我的渲染图/望远镜-渲染原稿练习.jpg"
+          alt=""
+        />
+      </div>
+      <div class="fan">
+        <img
+          style="width: 210%; transform: translate(-25%)"
+          src="@/assets/picture/我的渲染图/qxlarge-dsc-913EC4B95A2C9C0582CA19630C1635F8.jpg"
+          alt=""
+        />
+      </div>
     </div>
-    <div class="apple">
-      <img
-        style="width: 180%; transform: translateX(-11%)"
-        src="@/assets/picture/我的渲染图/33.jpg"
-        alt=""
-      />
+    <div style="background-color: black; width: 100%; height: 500px"></div>
+    <div class="pictureBox secondPage">
+      <div>更多</div>
+      <img class="picture" src="@/assets/picture/产品展示.jpg" alt="" />
     </div>
+    <div style="background-color: black; width: 100%; height: 350px"></div>
   </div>
-  <div style="background-color: black; width: 100%; height: 500px"></div>
-  <div class="pictureBox secondPage">
-    <img class="picture" src="@/assets/picture/产品展示1.jpg" alt="" />
-    <img class="picture" src="@/assets/picture/产品展示2.jpg" alt="" />
-    <img class="picture" src="@/assets/picture/产品展示1.jpg" alt="" />
-  </div>
-  <div style="background-color: black; width: 100%; height: 350px"></div>
 </template>
 
 <style scoped>
@@ -233,6 +281,16 @@ onMounted(() => {
   height: 29%;
   top: 50vh;
   left: 50vw;
+  overflow: hidden;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.fan {
+  width: 50%;
+  height: 27%;
+  top: 50vh;
+  left: 30vw;
   overflow: hidden;
   border-radius: 10px;
   transform: translate(-50%, -50%);
@@ -313,17 +371,16 @@ onMounted(() => {
   display: flex;
 }
 .picture {
-  width: 180%;
-  background-color: skyblue;
+  width: 540%;
   transform: translateX(0);
-  animation: infinity 20s infinite linear;
+  animation: infinity 15s infinite linear;
 }
 @keyframes infinity {
   from {
     transform: translateX(-0);
   }
   to {
-    transform: translateX(-200%);
+    transform: translateX(-66.65%);
   }
 }
 </style>

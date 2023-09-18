@@ -18,8 +18,10 @@ import FirstHeader from '@/components/home/FirstHeader.vue'
 import FirstList from '@/components/home/FirstList.vue'
 import FirstTopic from '@/components/home/FirstTopic.vue'
 import SecondList from '@/components/home/SecondList.vue'
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 import { gsap } from 'gsap'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 
 // import FirstFooter from './components/FirstFooter'
 //   components: { FirstTopic, FirstHeader, FirstList, SecondList }
@@ -45,6 +47,7 @@ onMounted(() => {
 }
 .topic-nav {
   position: absolute;
+  width: 20%;
   font-family: '得意黑 斜体', serif;
   background-image: linear-gradient(to right, #002b79, #216cc4);
   background-clip: text;

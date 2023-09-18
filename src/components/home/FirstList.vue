@@ -38,8 +38,8 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 // import { Autoplay, Scrollbar, FreeMode } from 'swiper/modules'
 import { useRouter } from 'vue-router'
-import 'swiper/css'
-import 'swiper/css/autoplay'
+// import 'swiper/css'
+// import 'swiper/css/autoplay'
 import { reactive, ref } from 'vue'
 // const modules = [Autoplay, Scrollbar, FreeMode]
 const router = useRouter()
