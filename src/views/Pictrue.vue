@@ -30,7 +30,7 @@ onMounted(() => {
     {
       delay: 0,
       duration: 1,
-      scale: devicePixelRatio,
+      scale: 1,
       opacity: 1,
       stagger: 0.5
     }
@@ -54,7 +54,10 @@ onMounted(() => {
         gsap.set('.fan', {
           opacity: 0
         })
-        gsap.set('.appleName', {
+        gsap.set('.straw', {
+          opacity: 0
+        })
+        gsap.set(['.appleName', '.appleName2', '.strawHello', '.card'], {
           opacity: 0
         })
       },
@@ -66,7 +69,7 @@ onMounted(() => {
             start: 'top top',
             end: '+=5500',
             scrub: true,
-            markers: true,
+            // markers: true,
             pin: true
           }
         })
@@ -86,26 +89,15 @@ onMounted(() => {
           ['#canvas'],
           {
             opacity: 1,
-            scale: devicePixelRatio
+            scale: 1
           },
           {
-            scale: devicePixelRatio * 2,
+            scale: 1.5,
             opacity: 0
           },
           '<'
         )
-        tl.addLabel('appleName').fromTo(
-          ['.appleName'],
-          {
-            opacity: 0,
-            y: 500
-          },
-          {
-            y: 0,
-            opacity: 1
-          },
-          '<0.3'
-        )
+
         tl.addLabel('appleCome').fromTo(
           ['.apple'],
           {
@@ -118,6 +110,65 @@ onMounted(() => {
           },
           '<0.15'
         )
+        tl.addLabel('appleName').fromTo(
+          ['.appleName'],
+          {
+            opacity: 0,
+            y: 80
+          },
+          {
+            y: 0,
+            opacity: 1
+          },
+          '>0.3'
+        )
+
+        tl.addLabel('appleNameGo').fromTo(
+          ['.appleName'],
+          {
+            y: 0
+          },
+          {
+            y: -80,
+            opacity: 0
+          },
+          '<1'
+        )
+        tl.addLabel('appleImg').fromTo(
+          ['.appleImg'],
+          {
+            x: -50
+          },
+          {
+            duration: 5,
+            x: -420
+          },
+          '<'
+        )
+        tl.addLabel('appleName2').fromTo(
+          ['.appleName2'],
+          {
+            opacity: 0,
+            y: 80
+          },
+          {
+            y: 0,
+            opacity: 1
+          },
+          '<0.3'
+        )
+
+        tl.addLabel('appleName2Go').fromTo(
+          ['.appleName2'],
+          {
+            y: 0
+          },
+          {
+            y: -80,
+            opacity: 0
+          },
+          '<0.8'
+        )
 
         tl.addLabel('appleLeave').fromTo(
           ['.apple'],
@@ -125,23 +176,75 @@ onMounted(() => {
             y: 0
           },
           {
+            duration: 0.5,
             y: -200,
             opacity: 0
           },
-          '>0.1'
+          '<0.3'
         )
         tl.addLabel('fanCome').fromTo(
           ['.fan'],
           { opacity: 0.8, left: -100, y: 300 },
           {
             stagger: 0.6,
-            ease: 'power1.out',
+            ease: 'none',
             duration: 2,
             y: -300,
             left: 580,
             opacity: 1
           },
-          '<0.1'
+          '>0.1'
+        )
+        tl.addLabel('strawHelloCome').fromTo(
+          ['.strawHello'],
+          { opacity: 0, scale: 0.5 },
+          {
+            ease: 'power1.out',
+            scale: 1,
+            opacity: 1
+          },
+          '>0.1'
+        )
+        tl.addLabel('cardCome').fromTo(
+          ['.card'],
+          { opacity: 0, scale: 0.5 },
+          {
+            ease: 'power1.out',
+            scale: 0.5,
+            opacity: 1
+          },
+          '<'
+        )
+        tl.addLabel('cardGo').fromTo(
+          ['.card'],
+          { scale: 0.5 },
+          {
+            ease: 'power1.in',
+            scale: 3
+          },
+          '<0.5'
+        )
+        tl.addLabel('strawHelloGo').fromTo(
+          ['.strawHello'],
+          { y: 0 },
+          {
+            ease: 'power1.out',
+            scale: 2,
+            opacity: 0
+          },
+          '<'
+        )
+        tl.addLabel('strawCome').fromTo(
+          ['.straw'],
+          { opacity: 0, y: 300 },
+          {
+            stagger: 0.6,
+            ease: 'power1.out',
+            duration: 2,
+            y: 0,
+            opacity: 1
+          },
+          '>0.1'
         )
       }
     }
@@ -150,15 +253,15 @@ onMounted(() => {
 onMounted(() => {
   console.log(window.devicePixelRatio)
 })
-// region的canvas部分
+// regioncanvas部分
 onMounted(() => {
   let canvas = document.getElementById('canvas'),
     $ = canvas.getContext('2d'),
     w = (canvas.width = window.innerWidth * devicePixelRatio),
     h = (canvas.height = window.innerHeight * devicePixelRatio),
     t = 0,
-    num = 450,
-    u = 0,
+    num = 300,
+    u = 150,
     _u,
     s,
     a,
@@ -167,7 +270,7 @@ onMounted(() => {
     y,
     _x,
     _y,
-    _t = 1 / 1000
+    _t = 1 / 800
 
   let anim = function () {
     $.globalCompositeOperation = 'source-over'
@@ -176,26 +279,26 @@ onMounted(() => {
     $.globalCompositeOperation = 'lighter'
     for (let i = 0; i < 2; i++) {
       x = 0
-      _u = u / 4 + i
+      _u = u / 2 + i
       $.beginPath()
       for (let j = 0; j < num; j++) {
-        x -= 0.72 * Math.sin(4)
+        x -= 3 * Math.sin(4)
         y = (x * Math.sin(i + 3.0 * t + x / 20)) / 2
         _x = x * Math.cos(b) - y * Math.sin(b)
         _y = x * Math.sin(b) + y * Math.cos(b)
         b = (j * 3 * Math.PI) / 6.8
-        $.lineWidth = 0.18
-        $.arc(w / 2 - _x, h / 2 - _y, 0.5, 0, 2 * Math.PI)
+        $.lineWidth = 0.78
+        $.arc(w / 2 - _x, h / 2 - _y, 1, 0, 2 * Math.PI)
       }
       // 设置线性渐变
       let g = $.createLinearGradient(w / 2 + _x, h / 2 + _y, 0, w / 2 + _x, h / 2 + _y)
-      g.addColorStop(0.5, `hsla(${u}, 20%, 40%, 0.8)`)
-      g.addColorStop(1, `hsla( ${_u},10%, 30%, 1)`)
+      g.addColorStop(0, `hsla(${u}, 40%, 40%, 0.4)`)
+      g.addColorStop(0.5, `hsla(${_u},40%, 40%, 0.4)`)
       $.strokeStyle = g
       $.stroke()
     }
     t += _t
-    u -= 0.2
+    u += 0.5
     window.requestAnimationFrame(anim)
   }
   anim()
@@ -207,25 +310,36 @@ onMounted(() => {
   <div>
     <div class="firstPage">
       <canvas style="width: 100%; height: 100%" id="canvas"></canvas>
-      <div class="card"><div class="mask"></div></div>
+
       <div class="hello">产品设计</div>
       <div
         class="appleName"
         style="
           margin-bottom: 50px;
           color: white;
-          font-size: 40px;
+          font-size: 25px;
           position: absolute;
           top: 25%;
           left: 10%;
         "
-      ></div>
+      >
+        这是苹果全家桶
+      </div>
+      <div
+        class="appleName2"
+        style="
+          margin-bottom: 50px;
+          color: white;
+          font-size: 25px;
+          position: absolute;
+          top: 25%;
+          left: 10%;
+        "
+      >
+        产自山东烟台
+      </div>
       <div class="apple">
-        <img
-          style="width: 180%; transform: translateX(-11%)"
-          src="@/assets/picture/我的渲染图/33.jpg"
-          alt=""
-        />
+        <img class="appleImg" style="width: 180%" src="@/assets/picture/我的渲染图/33.jpg" alt="" />
       </div>
       <div class="fan">
         <img
@@ -245,6 +359,29 @@ onMounted(() => {
         <img
           style="width: 210%; transform: translate(-25%)"
           src="@/assets/picture/我的渲染图/qxlarge-dsc-913EC4B95A2C9C0582CA19630C1635F8.jpg"
+          alt=""
+        />
+      </div>
+      <div
+        class="strawHello"
+        style="
+          margin-bottom: 50px;
+          color: white;
+          font-size: 20px;
+          position: absolute;
+          z-index: 30;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        "
+      >
+        吸管项目
+      </div>
+      <div class="card"><div class="mask"></div></div>
+      <div class="straw">
+        <img
+          style="width: 100%; transform: translate(0)"
+          src="@/assets/picture/我的渲染图/mmexport1668327187641.jpg"
           alt=""
         />
       </div>
@@ -296,6 +433,16 @@ onMounted(() => {
   transform: translate(-50%, -50%);
   position: absolute;
 }
+.straw {
+  width: 50%;
+  height: 27%;
+  top: 50vh;
+  left: 30vw;
+  overflow: hidden;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
 /*region魔法方块盒子部分*/
 
 @property --rotate {
@@ -305,7 +452,6 @@ onMounted(() => {
 }
 
 .card {
-  opacity: 0;
   width: 200px;
   height: 300px;
   padding: 3px;
@@ -328,7 +474,7 @@ onMounted(() => {
   width: 104%;
   height: 102%;
   border-radius: 8px;
-  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  background-image: linear-gradient(var(--rotate), #49bcf6, #49deb2 43%);
   position: absolute;
   z-index: 2;
   top: -1%;
@@ -339,16 +485,15 @@ onMounted(() => {
 .card::after {
   position: absolute;
   content: '';
-  top: 50px;
   left: 0;
   right: 0;
   z-index: 1;
   height: 100%;
   width: 100%;
   margin: 0 auto;
-  transform: scale(0.8);
-  filter: blur(80px);
-  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  transform: scale(1);
+  filter: blur(150px);
+  background-image: linear-gradient(var(--rotate), #49bcf6, #49deb2 43%);
   opacity: 1;
   transition: opacity 0.5s;
   animation: spin 2.5s linear infinite;
