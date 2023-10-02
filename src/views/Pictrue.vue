@@ -43,11 +43,12 @@ onMounted(() => {
   div.appendChild(app.view)
   const centerX = window.innerWidth / 2
   const centerY = window.innerHeight / 2
-  //加载资源
-  PIXI.Assets.add('straw1', '@/assets/picture/我的渲染图/2.png')
-  PIXI.Assets.add('straw2', '/src/assets/picture/我的渲染图/3.png')
-  PIXI.Assets.add('straw3', '/src/assets/picture/我的渲染图/4.jpg')
-  PIXI.Assets.add('straw4', '/src/assets/picture/我的渲染图/5.png')
+  //加载资源https://s1.imagehub.cc/images/2023/10/02/5.png
+
+  PIXI.Assets.add('straw1', 'https://s1.imagehub.cc/images/2023/10/02/5.png')
+  PIXI.Assets.add('straw2', 'https://s1.imagehub.cc/images/2023/10/02/2.png')
+  PIXI.Assets.add('straw3', 'https://s1.imagehub.cc/images/2023/10/02/3.png')
+  PIXI.Assets.add('straw4', 'https://s1.imagehub.cc/images/2023/10/02/495ea753f9bcc5473.jpeg')
 
   //region的firstFlower
   const firstFlower = new PIXI.Container()
