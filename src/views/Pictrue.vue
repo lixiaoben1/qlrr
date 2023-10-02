@@ -44,7 +44,7 @@ onMounted(() => {
   const centerX = window.innerWidth / 2
   const centerY = window.innerHeight / 2
   //加载资源
-  PIXI.Assets.add('straw1', '/src/assets/picture/我的渲染图/2.png')
+  PIXI.Assets.add('straw1', '@/assets/picture/我的渲染图/2.png')
   PIXI.Assets.add('straw2', '/src/assets/picture/我的渲染图/3.png')
   PIXI.Assets.add('straw3', '/src/assets/picture/我的渲染图/4.jpg')
   PIXI.Assets.add('straw4', '/src/assets/picture/我的渲染图/5.png')
