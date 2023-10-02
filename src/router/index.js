@@ -26,6 +26,18 @@ const router = createRouter({
     {
       path: '/picture',
       component: () => import('@/views/Pictrue.vue')
+    },
+    {
+      path: '/konva',
+      component: () => import('@/views/Konva.vue')
+    },
+    {
+      path: '/pixi',
+      component: () => import('@/views/Pixi.vue')
+    },
+    {
+      path: '/me',
+      component: () => import('@/views/MyIntroduction.vue')
     }
     // {
     //   path: '/konva',

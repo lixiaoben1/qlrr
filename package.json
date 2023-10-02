@@ -17,6 +17,8 @@
     "konva": "^9.2.1",
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.0",
+    "pixi-filters": "^5.2.1",
+    "pixi.js": "^7.3.1",
     "swiper": "^9.4.1",
     "vue": "^3.3.4",
     "vue-konva": "^3.0.2",

@@ -51,7 +51,9 @@
   <div :class="{ menuPopUp: !unflipMenu, menu: unflipMenu }">
     <ul class="menu-item">
       <li>商城<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
-      <li>个人简介<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+      <li @click="router.push('/picture')">
+        个人简介<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+      </li>
       <li>荣誉证书<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
       <li>我的作品<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
       <li>ChatGpt<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
