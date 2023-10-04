@@ -50,7 +50,7 @@
   </div>
   <div :class="{ menuPopUp: !unflipMenu, menu: unflipMenu }">
     <ul class="menu-item">
-      <li>商城<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+      <li>产品渲染<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
       <li @click="router.push('/picture')">
         个人简介<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
       </li>

@@ -49,7 +49,7 @@ onMounted(() => {
   const starBox = new PIXI.Container()
   app.stage.addChild(starBox)
 
-  const starTexture = PIXI.Texture.from('/src/assets/picture/star.png')
+  const starTexture = PIXI.Texture.from('/我的渲染图/star.png')
 
   const starAmount = 1000
   let cameraZ = 0
