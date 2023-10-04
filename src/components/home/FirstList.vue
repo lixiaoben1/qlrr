@@ -10,21 +10,22 @@
     @swiper="onSwiper"
   >
     <!-- shadow -->
-    <swiper-slide @click="router.push('/picture')" class="swiper-slide">
+    <swiper-slide @click="router.push('/me')" class="swiper-slide">
       <img src="@/assets/picture/主页3d图/5.svg" alt="" />
       <div class="picture-3d">resume</div>
       <div class="picture-3d">个人简介</div>
+    </swiper-slide>
+    <swiper-slide @click="router.push('/picture')" class="swiper-slide">
+      <img src="@/assets/picture/主页3d图/7.svg" alt="" />
+      <div class="picture-3d">ID-design</div>
+      <div class="picture-3d">产品设计</div>
     </swiper-slide>
     <swiper-slide class="swiper-slide">
       <img src="@/assets/picture/主页3d图/3.svg" alt="" />
       <div class="picture-3d">honorary</div>
       <div class="picture-3d">荣誉证书</div>
     </swiper-slide>
-    <swiper-slide class="swiper-slide">
-      <img src="@/assets/picture/主页3d图/7.svg" alt="" />
-      <div class="picture-3d">ID-design</div>
-      <div class="picture-3d">产品设计</div>
-    </swiper-slide>
+
     <swiper-slide class="swiper-slide">
       <img src="@/assets/picture/主页3d图/4.svg" alt="" />
       <div class="picture-3d">more</div>
@@ -38,6 +39,10 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 // import { Autoplay, Scrollbar, FreeMode } from 'swiper/modules'
 import { useRouter } from 'vue-router'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 // import 'swiper/css'
 // import 'swiper/css/autoplay'
 import { reactive, ref } from 'vue'

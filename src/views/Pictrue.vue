@@ -41,14 +41,15 @@ onMounted(() => {
   app.renderer.view.style.touchAction = 'auto'
   const div = document.querySelector('.firstPage')
   div.appendChild(app.view)
-  const centerX = window.innerWidth / 2
-  const centerY = window.innerHeight / 2
+  const centerX = app.screen.width / 2
+  const centerY = app.screen.height / 2
   //加载资源https://s1.imagehub.cc/images/2023/10/02/5.png
 
-  PIXI.Assets.add('straw1', 'https://s1.imagehub.cc/images/2023/10/02/5.png')
-  PIXI.Assets.add('straw2', 'https://s1.imagehub.cc/images/2023/10/02/2.png')
-  PIXI.Assets.add('straw3', 'https://s1.imagehub.cc/images/2023/10/02/3.png')
-  PIXI.Assets.add('straw4', 'https://s1.imagehub.cc/images/2023/10/02/495ea753f9bcc5473.jpeg')
+  PIXI.Assets.add('straw1', '/我的渲染图/2.jpg')
+  PIXI.Assets.add('straw2', '/我的渲染图/3.jpg')
+  PIXI.Assets.add('straw3', '/我的渲染图/4.jpg')
+  PIXI.Assets.add('straw4', '/我的渲染图/5.jpg')
+  PIXI.Assets.add('straw5', '/我的渲染图/6.jpg')
 
   //region的firstFlower
   const firstFlower = new PIXI.Container()
@@ -319,7 +320,13 @@ onMounted(() => {
   const straw3 = new PIXI.Container()
   app.stage.addChild(straw3)
 
-  const straw1 = PIXI.Assets.load(['straw1', 'straw2', 'straw3', 'straw4']) // => Promise<{flowerTop: Texture, eggHead: Texture}>
+  const straw4 = new PIXI.Container()
+  app.stage.addChild(straw4)
+
+  const straw5 = new PIXI.Container()
+  app.stage.addChild(straw5)
+
+  const straw1 = PIXI.Assets.load(['straw1', 'straw2', 'straw3', 'straw4', 'straw5']) // => Promise<{flowerTop: Texture, eggHead: Texture}>
   straw1.then((texture) => {
     const rectMask = new PIXI.Graphics()
     rectMask.beginFill('black')
@@ -358,8 +365,38 @@ onMounted(() => {
     flowerTop3.scale.set(0.3)
     flowerTop3.mask = rectMask3
     straw3.pivot.set(0.5)
-    straw3.position.set(centerX + centerX * 2 + centerX * 2, centerY)
+    straw3.position.set(centerX + centerX * 2, centerY)
     straw3.addChild(flowerTop3)
+
+    //第四个
+    const rectMask4 = new PIXI.Graphics()
+    rectMask4.beginFill('black')
+    rectMask4.drawRoundedRect(-90, -140, 180, 280, 22)
+    straw4.addChild(rectMask4)
+
+    const flowerTop4 = PIXI.Sprite.from(texture.straw4)
+    flowerTop4.anchor.set(0.5)
+    flowerTop4.scale.set(0.33)
+    flowerTop4.position.set(-20, 0)
+    flowerTop4.mask = rectMask4
+    straw4.pivot.set(0.5)
+    straw4.position.set(centerX + centerX * 2, centerY)
+    straw4.addChild(flowerTop4)
+
+    //第五个
+    const rectMask5 = new PIXI.Graphics()
+    rectMask5.beginFill('black')
+    rectMask5.drawRoundedRect(-90, -140, 180, 280, 22)
+    straw5.addChild(rectMask5)
+
+    const flowerTop5 = PIXI.Sprite.from(texture.straw5)
+    flowerTop5.anchor.set(0.5)
+    flowerTop5.scale.set(0.39)
+    flowerTop5.position.set(0, 0)
+    flowerTop5.mask = rectMask5
+    straw5.pivot.set(0.5)
+    straw5.position.set(centerX + centerX * 2, centerY)
+    straw5.addChild(flowerTop5)
   })
   //endregion straw
 
@@ -455,7 +492,7 @@ onMounted(() => {
     },
     {
       duration: 5,
-      x: -400
+      x: -350
     },
     '<'
   )
@@ -498,16 +535,29 @@ onMounted(() => {
   )
   tl.addLabel('fanCome').fromTo(
     ['.fan'],
-    { opacity: 0, left: -400, y: 50 },
+    { opacity: 0, left: -400, y: 100 },
     {
       stagger: 0.7,
       ease: 'none',
       duration: 2,
       y: -300,
-      left: 580,
+      left: 600,
       opacity: 1.5
     },
     '>0.1'
+  )
+  tl.addLabel('fan2Come').fromTo(
+    ['.fan2'],
+    { opacity: 0, left: 800, y: 250 },
+    {
+      stagger: 0.7,
+      ease: 'none',
+      duration: 2,
+      y: -100,
+      left: -200,
+      opacity: 1.8
+    },
+    '<1.8'
   )
   tl.addLabel('strawHelloCome').fromTo(
     ['.strawHello'],
@@ -619,7 +669,67 @@ onMounted(() => {
     {
       pixi: {
         scale: 1.6,
-        x: centerX + centerX * 2 + centerX * 2
+        x: centerX + centerX * 2
+      }
+    },
+    {
+      pixi: {
+        x: centerX
+      }
+    },
+    '<'
+  )
+  tl.addLabel('strawGo3').fromTo(
+    [straw3],
+    {
+      pixi: {
+        scale: 1.6,
+        x: centerX
+      }
+    },
+    {
+      pixi: {
+        x: centerX - centerX * 2
+      }
+    },
+    '>0.35'
+  )
+  tl.addLabel('strawCome4').fromTo(
+    [straw4],
+    {
+      pixi: {
+        scale: 1.6,
+        x: centerX + centerX * 2
+      }
+    },
+    {
+      pixi: {
+        x: centerX
+      }
+    },
+    '<'
+  )
+  tl.addLabel('strawGo4').fromTo(
+    [straw4],
+    {
+      pixi: {
+        scale: 1.6,
+        x: centerX
+      }
+    },
+    {
+      pixi: {
+        x: centerX - centerX * 2
+      }
+    },
+    '>0.35'
+  )
+  tl.addLabel('strawCome5').fromTo(
+    [straw5],
+    {
+      pixi: {
+        scale: 1.6,
+        x: centerX + centerX * 2
       }
     },
     {
@@ -718,7 +828,7 @@ onMounted(() => {
       </div>
       <div class="fan">
         <img
-          style="width: 190%; transform: translateX(-18%)"
+          style="width: 160%; transform: translateX(-18%)"
           src="@/assets/picture/我的渲染图/IMG_20220611_122334.jpg"
           alt=""
         />
@@ -732,7 +842,28 @@ onMounted(() => {
       </div>
       <div class="fan">
         <img
-          style="width: 210%; transform: translate(-25%)"
+          style="width: 110%; transform: translate(-0)"
+          src="@/assets/picture/我的渲染图/IMG_20220828_160326.jpg"
+          alt=""
+        />
+      </div>
+      <div class="fan2">
+        <img
+          style="width: 115%; transform: translate(-15px)"
+          src="@/assets/picture/我的渲染图/mmexport1661308631259.jpg"
+          alt=""
+        />
+      </div>
+      <div class="fan2">
+        <img
+          style="width: 130%; transform: translate(-20px)"
+          src="@/assets/picture/我的渲染图/橘子冰淇淋.jpg"
+          alt=""
+        />
+      </div>
+      <div class="fan2">
+        <img
+          style="width: 130%; transform: translate(-12%)"
           src="@/assets/picture/我的渲染图/qxlarge-dsc-913EC4B95A2C9C0582CA19630C1635F8.jpg"
           alt=""
         />
@@ -802,6 +933,16 @@ onMounted(() => {
   position: absolute;
 }
 .fan {
+  width: 50vw;
+  height: 27vh;
+  top: 50vh;
+  left: 30vw;
+  overflow: hidden;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.fan2 {
   width: 50vw;
   height: 27vh;
   top: 50vh;

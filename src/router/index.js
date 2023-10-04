@@ -12,10 +12,7 @@ const router = createRouter({
       path: '/user',
       component: () => import('@/views/UserProfile.vue')
     },
-    {
-      path: '/introduction',
-      component: () => import('@/views/introduction.vue')
-    },
+
     {
       path: '/login',
       // route level code-splitting
@@ -38,6 +35,10 @@ const router = createRouter({
     {
       path: '/me',
       component: () => import('@/views/MyIntroduction.vue')
+    },
+    {
+      path: '/demo',
+      component: () => import('@/views/demo.vue')
     }
     // {
     //   path: '/konva',
