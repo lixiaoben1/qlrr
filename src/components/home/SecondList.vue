@@ -1,20 +1,22 @@
 <template>
-  <Swiper
-    ref="swiper1"
-    class="swiper-container"
-    :modules="modules"
-    :slidesPerView="2.26"
-    :slides-offset-before="swiperValue.slidesOffsetBefore"
-    space-between="15"
-    pagination.clickable="true"
-  >
-    <swiper-slide class="swiper-slide">
-      <img src="@/assets/picture/主页3d图/1.svg" alt="" />
-    </swiper-slide>
-    <swiper-slide class="swiper-slide">
-      <img src="@/assets/picture/主页3d图/2.svg" alt="" />
-    </swiper-slide>
-  </Swiper>
+  <div>
+    <Swiper
+      ref="swiper1"
+      class="swiper-container"
+      :modules="modules"
+      :slidesPerView="2.26"
+      :slides-offset-before="swiperValue.slidesOffsetBefore"
+      space-between="15"
+      pagination.clickable="true"
+    >
+      <swiper-slide class="swiper-slide">
+        <img src="@/assets/picture/主页3d图/1.svg" alt="" />
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src="@/assets/picture/主页3d图/2.svg" alt="" />
+      </swiper-slide>
+    </Swiper>
+  </div>
 </template>
 
 <script setup>

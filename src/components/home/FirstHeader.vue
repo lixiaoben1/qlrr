@@ -1,69 +1,71 @@
 <template>
-  <div class="top-banner">
-    <box-icon
-      v-show="!unflipMenu"
-      @click="unflipMenu = !unflipMenu"
-      pull="right"
-      size="40px"
-      name="x"
-    ></box-icon>
-    <box-icon
-      v-show="unflipMenu"
-      @click="unflipMenu = !unflipMenu"
-      pull="right"
-      size="40px"
-      name="menu"
-    ></box-icon>
-    <div class="logo">QLRR</div>
-    <div class="topbar-nav">
-      <div class="search">
-        <div :class="{ serchAnimate: !unflip, searchInput: unflip }">
-          <input
-            v-show="!unflip"
-            ref="autoFocus"
-            class="search-demo"
-            @blur="todoBlur()"
-            type="text"
+  <div>
+    <div class="top-banner">
+      <box-icon
+        v-show="!unflipMenu"
+        @click="unflipMenu = !unflipMenu"
+        pull="right"
+        size="40px"
+        name="x"
+      ></box-icon>
+      <box-icon
+        v-show="unflipMenu"
+        @click="unflipMenu = !unflipMenu"
+        pull="right"
+        size="40px"
+        name="menu"
+      ></box-icon>
+      <div class="logo">QLRR</div>
+      <div class="topbar-nav">
+        <div class="search">
+          <div :class="{ serchAnimate: !unflip, searchInput: unflip }">
+            <input
+              v-show="!unflip"
+              ref="autoFocus"
+              class="search-demo"
+              @blur="todoBlur()"
+              type="text"
+            />
+          </div>
+          <a @click="flip" href="#">
+            <box-icon
+              style="
+                opacity: 0.5;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              "
+              name="search"
+            ></box-icon>
+          </a>
+        </div>
+        <div @click="toLogin" class="login-top">
+          <el-avatar
+            :size="30"
+            style="margin: 5px"
+            src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/1455840/8c10a476093ee953800c50d3252dfa07ca77cbdf.jpg"
           />
         </div>
-        <a @click="flip" href="#">
-          <box-icon
-            style="
-              opacity: 0.5;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            "
-            name="search"
-          ></box-icon>
-        </a>
-      </div>
-      <div @click="toLogin" class="login-top">
-        <el-avatar
-          :size="30"
-          style="margin: 5px"
-          src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/1455840/8c10a476093ee953800c50d3252dfa07ca77cbdf.jpg"
-        />
       </div>
     </div>
+    <div :class="{ menuPopUp: !unflipMenu, menu: unflipMenu }">
+      <ul class="menu-item">
+        <li>产品渲染<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+        <li @click="router.push('/picture')">
+          个人简介<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+        </li>
+        <li>荣誉证书<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+        <li>我的作品<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+        <li>ChatGpt<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+        <hr />
+        <li>与我联系<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+      </ul>
+    </div>
+    <Transition name="masked">
+      <div @click="mask" class="mask" v-show="!unflipMenu"></div>
+    </Transition>
   </div>
-  <div :class="{ menuPopUp: !unflipMenu, menu: unflipMenu }">
-    <ul class="menu-item">
-      <li>产品渲染<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
-      <li @click="router.push('/picture')">
-        个人简介<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
-      </li>
-      <li>荣誉证书<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
-      <li>我的作品<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
-      <li>ChatGpt<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
-      <hr />
-      <li>与我联系<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
-    </ul>
-  </div>
-  <Transition name="masked">
-    <div @click="mask" class="mask" v-show="!unflipMenu"></div>
-  </Transition>
 </template>
 
 <script setup>

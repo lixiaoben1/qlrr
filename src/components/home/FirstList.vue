@@ -1,37 +1,39 @@
 <template>
-  <Swiper
-    ref="swiper1"
-    class="swiper-container"
-    :modules="modules"
-    :slidesPerView="2.26"
-    :slides-offset-before="swiperValue.slidesOffsetBefore"
-    space-between="15"
-    :freeMode="true"
-    @swiper="onSwiper"
-  >
-    <!-- shadow -->
-    <swiper-slide @click="router.push('/me')" class="swiper-slide">
-      <img src="@/assets/picture/主页3d图/5.svg" alt="" />
-      <div class="picture-3d">resume</div>
-      <div class="picture-3d">个人简介</div>
-    </swiper-slide>
-    <swiper-slide @click="router.push('/picture')" class="swiper-slide">
-      <img src="@/assets/picture/主页3d图/7.svg" alt="" />
-      <div class="picture-3d">ID-design</div>
-      <div class="picture-3d">产品设计</div>
-    </swiper-slide>
-    <swiper-slide class="swiper-slide">
-      <img src="@/assets/picture/主页3d图/3.svg" alt="" />
-      <div class="picture-3d">honorary</div>
-      <div class="picture-3d">荣誉证书</div>
-    </swiper-slide>
+  <div>
+    <Swiper
+      ref="swiper1"
+      class="swiper-container"
+      :modules="modules"
+      :slidesPerView="2.26"
+      :slides-offset-before="swiperValue.slidesOffsetBefore"
+      space-between="15"
+      :freeMode="true"
+      @swiper="onSwiper"
+    >
+      <!-- shadow -->
+      <swiper-slide @click="router.push('/me')" class="swiper-slide">
+        <img src="@/assets/picture/主页3d图/5.svg" alt="" />
+        <div class="picture-3d">resume</div>
+        <div class="picture-3d">个人简介</div>
+      </swiper-slide>
+      <swiper-slide @click="router.push('/picture')" class="swiper-slide">
+        <img src="@/assets/picture/主页3d图/7.svg" alt="" />
+        <div class="picture-3d">ID-design</div>
+        <div class="picture-3d">产品设计</div>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img src="@/assets/picture/主页3d图/3.svg" alt="" />
+        <div class="picture-3d">honorary</div>
+        <div class="picture-3d">荣誉证书</div>
+      </swiper-slide>
 
-    <swiper-slide class="swiper-slide">
-      <img src="@/assets/picture/主页3d图/4.svg" alt="" />
-      <div class="picture-3d">more</div>
-      <div class="picture-3d">敬请期待！</div>
-    </swiper-slide>
-  </Swiper>
+      <swiper-slide class="swiper-slide">
+        <img src="@/assets/picture/主页3d图/4.svg" alt="" />
+        <div class="picture-3d">more</div>
+        <div class="picture-3d">敬请期待！</div>
+      </swiper-slide>
+    </Swiper>
+  </div>
 </template>
 
 <script setup>
