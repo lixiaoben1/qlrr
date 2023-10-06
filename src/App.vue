@@ -1,15 +1,11 @@
 <script setup>
-import { computed } from 'vue'
 import { RouterView } from 'vue-router'
-import { useRoute } from 'vue-router'
-const route = useRoute()
-const key = computed(() => route.path)
 // import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
 <template>
   <div>
-    <router-view :key="key"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 

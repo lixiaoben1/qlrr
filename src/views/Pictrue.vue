@@ -59,6 +59,7 @@ onMounted(() => {
     // adjust it if somehow you need better quality for very very big images
     const quality = 120
     const canvas = document.createElement('canvas')
+    console.log('产品设计加载成功')
 
     canvas.width = quality
     canvas.height = 1
@@ -411,6 +412,8 @@ onMounted(() => {
       pin: true
     }
   })
+
+  tl.scrollTrigger.scroll(0)
 
   tl.addLabel('hello').fromTo(
     '.hello',

@@ -195,7 +195,7 @@ const toRegister = () => {
     background-position-x: -400px;
   }
 }
-.el-input >>> {
+.el-input {
   /*position: absolute;*/
   width: 240px;
   left: 50%;

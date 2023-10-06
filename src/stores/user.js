@@ -19,3 +19,20 @@ export const useUserStore = defineStore(
     persist: true
   }
 )
+
+export const useChatStore = defineStore(
+  'chat',
+  () => {
+    const chatList = ref()
+    const setChatList = (newChatList) => {
+      chatList.value = newChatList
+    }
+    const addChat = (newChat) => {
+      chatList.value.push(newChat)
+    }
+    return { chatList, setChatList, addChat }
+  },
+  {
+    persist: true
+  }
+)

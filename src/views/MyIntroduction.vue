@@ -343,7 +343,7 @@ onMounted(() => {
               top: 50vh;
             "
             class="toDesign"
-            @click="router.push('/')"
+            @click="router.push('/picture')"
           >
             点此观看我的产品渲染
           </div>
