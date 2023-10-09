@@ -41,8 +41,8 @@ watch(text, (newVal) => {
 
 <template>
   <div>
-    <firstHeader style="position: fixed"></firstHeader>
-    <content />
+    <!--    <firstHeader style="position: fixed"></firstHeader>-->
+    <!--    <content />-->
     <send style="position: fixed; bottom: 2vh" />
   </div>
   <!--      <div style="display: flex">-->

@@ -63,57 +63,70 @@ const addItems = () => {
 //     content: formModel.value
 //   })
 // }
+const text = ref()
+
+const sends = () => {
+  textGet.value = encodeURIComponent(formModel.value)
+  axios({
+    method: 'get',
+    url: 'http://127.0.0.1:5000/students'
+    // params: {
+    //   key: 'free',
+    //   appid: 0,
+    //   msg: textGet.value
+    // }
+  }).then(
+    (res) => {
+      text.value = res.data.content
+      // console.log(res.data)
+      // useStore.addChat({
+      //   id: new Date(),
+      //   type: 'GetContent',
+      //   content: res.data.content
+      // })
+    },
+    (err) => {
+      console.log(err)
+    }
+  )
+}
 
 // const sends = () => {
-//   textGet.value = encodeURIComponent(formModel.value)
-//   axios({
-//     method: 'get',
-//     url: 'http://localhost:5173/api',
-//     params: {
-//       key: 'free',
-//       appid: 0,
-//       msg: textGet.value
-//     }
-//   }).then(
-//     (res) => {
-//       console.log(res.data)
-//       useStore.addChat({
-//         id: new Date(),
-//         type: 'GetContent',
-//         content: res.data.content
-//       })
-//     },
-//     (err) => {
-//       console.log(err)
-//     }
-//   )
+//   //创建script标签
+//   const img = new Image()
+//   img.src = 'http://localhost:5173/api'
+//   // const script = document.createElement('script')
+//   //给script标签添加src属性
+//   // script.src = `http://api.qingyunke.com/api.php?key=free&appid=0&msg=%E4%BD%A0%E6%98%AF%E8%B0%81`
+//   //将script标签添加到body中
+//   // document.body.appendChild(script)
 // }
 </script>
 
 <template>
-  <div class="sendBox">
-    <el-form class="el-input" ref="form" size="large" autocomplete="off">
-      <el-form-item class="el-input3" prop="username">
-        <el-input @keyup.enter="addItems" v-model="formModel" placeholder="按回车键发送"></el-input>
-      </el-form-item>
-    </el-form>
-    <el-button @click="addItems" type="info">发送</el-button>
-  </div>
-  <!--  <div style="display: flex">-->
-  <!--    <input-->
-  <!--      v-model="text"-->
-  <!--      style="width: 200px; height: 50px; background-color: skyblue"-->
-  <!--      type="text"-->
-  <!--    />-->
-  <!--    <button @click="sends" style="width: 50px; height: 50px; cursor: pointer; margin-left: 10px">-->
-  <!--      点击发送-->
-  <!--    </button>-->
-  <!--    <input-->
-  <!--      v-model="text2"-->
-  <!--      style="width: 200px; height: 50px; background-color: skyblue; margin-top: 10px"-->
-  <!--      type="text"-->
-  <!--    />-->
+  <!--  <div class="sendBox">-->
+  <!--    <el-form class="el-input" ref="form" size="large" autocomplete="off">-->
+  <!--      <el-form-item class="el-input3" prop="username">-->
+  <!--        <el-input @keyup.enter="addItems" v-model="formModel" placeholder="按回车键发送"></el-input>-->
+  <!--      </el-form-item>-->
+  <!--    </el-form>-->
+  <!--    <el-button @click="addItems" type="info">发送</el-button>-->
   <!--  </div>-->
+  <div style="display: flex">
+    <input
+      v-model="text"
+      style="width: 200px; height: 50px; background-color: skyblue"
+      type="text"
+    />
+    <button @click="sends" style="width: 50px; height: 50px; cursor: pointer; margin-left: 10px">
+      点击发送
+    </button>
+    <input
+      v-model="text2"
+      style="width: 200px; height: 50px; background-color: skyblue; margin-top: 10px"
+      type="text"
+    />
+  </div>
 </template>
 
 <style scoped>

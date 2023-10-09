@@ -51,7 +51,7 @@ onUpdated(() => {
 
 .content {
   width: 100vw;
-  height: 90vh;
+  height: 50vh;
   border: rgba(255, 255, 255, 0) 1px solid;
   overflow-x: hidden;
   overflow-y: auto;

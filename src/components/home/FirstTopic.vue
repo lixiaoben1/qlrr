@@ -10,6 +10,7 @@
               top: 42%;
               left: 50%;
               transform: translate(-50%, -50%);
+              cursor: pointer;
             "
             name="shopping-bag"
             size="20px"
@@ -18,7 +19,12 @@
         </span>
         <span
           data-id="1"
-          style="vertical-align: middle; margin-left: 10px; font-family: '得意黑 斜体', serif"
+          style="
+            vertical-align: middle;
+            margin-left: 10px;
+            font-family: '得意黑 斜体', serif;
+            cursor: pointer;
+          "
           >Shopping store</span
         >
       </div>
@@ -32,6 +38,7 @@
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%);
+              cursor: pointer;
             "
             name="message-dots"
             size="20px"
@@ -39,12 +46,17 @@
         </span>
         <span
           data-id="2"
-          style="vertical-align: middle; margin-left: 10px; font-family: '得意黑 斜体', serif"
+          style="
+            vertical-align: middle;
+            margin-left: 10px;
+            font-family: '得意黑 斜体', serif;
+            cursor: pointer;
+          "
           >Chat-gpt</span
         >
       </div>
       <hr />
-      <div class="topic-item">
+      <div @click="router.push('/ppt')" class="topic-item">
         <span class="topic-item-round"
           ><box-icon
             style="
@@ -53,6 +65,7 @@
               top: 42%;
               left: 50%;
               transform: translate(-50%, -50%);
+              cursor: pointer;
             "
             name="popsicle"
             size="20px"
@@ -60,8 +73,13 @@
         ></span>
         <span
           data-id="3"
-          style="vertical-align: middle; margin-left: 10px; font-family: '得意黑 斜体', serif"
-          >Entertainment</span
+          style="
+            vertical-align: middle;
+            margin-left: 10px;
+            font-family: '得意黑 斜体', serif;
+            cursor: pointer;
+          "
+          >Entertainment-PPT</span
         >
       </div>
     </div>
@@ -69,6 +87,9 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+//使用路由
+const router = useRouter()
 import 'boxicons'
 </script>
 

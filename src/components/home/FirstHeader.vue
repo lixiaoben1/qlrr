@@ -61,6 +61,9 @@
       <li @click="router.push('/chat')">
         智能聊天机器人<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
       </li>
+      <li @click="router.push('/ppt')">
+        PPT<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+      </li>
       <hr />
       <li>与我联系<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
     </ul>
@@ -168,7 +171,7 @@ watch(unflipMenu, () => {
 .menu {
   width: 100%;
   position: fixed;
-  left: -500px;
+  left: -100vw;
   z-index: 2000;
   height: 100%;
   background-color: rgba(255, 255, 255, 0);

@@ -29,16 +29,16 @@ const router = createRouter({
     //   component: () => import('@/views/Konva.vue')
     // },
     {
-      path: '/pixi',
-      component: () => import('@/views/Pixi.vue')
-    },
-    {
       path: '/me',
       component: () => import('@/views/MyIntroduction.vue')
     },
     {
       path: '/chat',
       component: () => import('@/views/ChatAI.vue')
+    },
+    {
+      path: '/ppt',
+      component: () => import('@/views/PPT.vue')
     }
     // {
     //   path: '/demo',
