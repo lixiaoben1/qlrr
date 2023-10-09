@@ -78,7 +78,7 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <div style="width: 100%; height: 100vh; background-color: black" class="ppt">
+    <div class="ppt">
       <img @keyup.right="next" @click="next" style="width: 100%" :src="src[index]" alt="" />
     </div>
     <button v-show="!isfull" class="start" @click="full">全屏</button>
@@ -90,6 +90,19 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.ppt {
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  top: 50vh;
+  transform: translateY(-50%);
+}
 .reStart {
   width: 65px;
   height: 30px;
