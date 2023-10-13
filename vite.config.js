@@ -24,11 +24,8 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      // 字符串简写写法：http://localhost:5173/foo -> http://localhost:4567/foo
-      // '/api': 'http://api.qingyunke.com/api.php'
-      // 带选项写法：http://localhost:5173/api/bar -> http://jsonplaceholder.typicode.com/bar
       '/api': {
-        target: 'http://api.qingyunke.com/api.php',
+        target: 'https://qlrrnode.azurewebsites.net/users',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }

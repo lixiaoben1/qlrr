@@ -4,6 +4,8 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ref } from 'vue'
 import { PixiPlugin } from 'gsap/PixiPlugin'
+import * as PIXI from 'pixi.js'
+PixiPlugin.registerPIXI(PIXI)
 
 import Swiper, { Navigation, Pagination, EffectCoverflow } from 'swiper'
 
@@ -30,27 +32,58 @@ onMounted(() => {
       el: '.swiper-pagination'
     }
   })
+
+  //pixi
+  const app = new PIXI.Application({
+    backgroundColor: 'black',
+    width: window.innerWidth,
+    height: window.innerHeight,
+    antialias: true,
+    autoDensity: true,
+
+    resolution: window.devicePixelRatio || 1
+  })
+  app.renderer.view.style.touchAction = 'auto'
+  const div = document.querySelector('.container')
+  //加载在div最前面
+  div.insertBefore(app.view, div.firstChild)
+
+  PIXI.Assets.add('flowerTop', 'http://localhost:5173/requestPicture')
+  PIXI.Assets.add('eggHead', 'https://pixijs.com/assets/eggHead.png')
+  // Load the assets and get a resolved promise once both are loaded
+  const texturesPromise = PIXI.Assets.load(['flowerTop', 'eggHead'], (progress) => {
+    console.log(progress)
+  }) // => Promise<{flowerTop: Texture, eggHead: Texture}>
+  texturesPromise.then((texture) => {
+    const flowerTop = PIXI.Sprite.from(texture.flowerTop)
+    flowerTop.x = 200
+    flowerTop.y = 200
+    app.stage.addChild(flowerTop)
+  })
 })
 </script>
 
 <template>
-  <div class="swiper">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-      <!-- Slides -->
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
+  <div class="container">
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
     </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
-
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
+    <!--    <img src="https://s1.imagehub.cc/images/2023/10/02/5.png" alt="5.png" border="0" />-->
   </div>
 </template>
 

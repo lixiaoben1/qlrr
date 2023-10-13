@@ -90,7 +90,6 @@
 import { useRouter } from 'vue-router'
 //使用路由
 const router = useRouter()
-import 'boxicons'
 </script>
 
 <style scoped>

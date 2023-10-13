@@ -37,7 +37,7 @@ onMounted(() => {
   const blurFilter = new PIXI.BlurFilter()
   blurFilter.blur = 5
   blurFilter.quality = 5
-  PIXI.Assets.add('flowerTop', 'https://pixijs.com/assets/flowerTop.png')
+  PIXI.Assets.add('flowerTop', 'http://localhost:5173/requestPicture')
   PIXI.Assets.add('eggHead', 'https://pixijs.com/assets/eggHead.png')
   // Load the assets and get a resolved promise once both are loaded
   const texturesPromise = PIXI.Assets.load(['flowerTop', 'eggHead']) // => Promise<{flowerTop: Texture, eggHead: Texture}>

@@ -20,7 +20,7 @@ if (!chatStore.chatList) {
 }
 const chatData = ref(chatStore.chatList)
 function scrollToBottom() {
-  const chatBox = document.querySelector('.container')
+  const chatBox = document.querySelector('.content')
   chatBox.scrollTop = chatBox.scrollHeight
 }
 onMounted(() => {
@@ -35,9 +35,9 @@ onUpdated(() => {
 <template>
   <div class="container">
     <div class="content">
-      <ul>
-        <li v-for="item in chatData" :class="item.type" :key="item.id">
-          {{ item.content }}
+      <ul class="contentBox">
+        <li v-for="item in chatData" :key="item.id">
+          <div :class="item.type">{{ item.content }}</div>
         </li>
       </ul>
     </div>
@@ -51,12 +51,19 @@ onUpdated(() => {
 
 .content {
   width: 100vw;
-  height: 50vh;
+  height: 100vh;
   border: rgba(255, 255, 255, 0) 1px solid;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: #eeeeee;
   margin: 0 auto;
+}
+.contentBox {
+  width: 100vw;
+  display: flex;
+  margin-top: 80px;
+  flex-direction: column;
+  align-content: space-between;
 }
 
 .SendContent {
@@ -66,12 +73,14 @@ onUpdated(() => {
   word-wrap: break-word;
   box-sizing: border-box;
   padding: 0 10px;
-  margin-top: 20px;
   line-height: 40px;
+  float: right;
+  right: 6vw;
+  margin-top: 15px;
+  margin-bottom: 15px;
   /*display: inline-block;*/
   background-color: skyblue;
   border-radius: 10px;
-  margin-left: 50vw;
   position: relative;
 }
 .SendContent::after {
@@ -92,13 +101,15 @@ onUpdated(() => {
 .GetContent {
   width: fit-content;
   max-width: 45vw;
-  margin-left: 5vw;
   height: fit-content;
   word-wrap: break-word;
   box-sizing: border-box;
   padding: 0 10px;
-  margin-top: 20px;
   line-height: 40px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  float: left;
+  left: 6vw;
   /*display: inline-block;*/
   background-color: #dadada;
   border-radius: 10px;

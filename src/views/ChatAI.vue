@@ -1,5 +1,5 @@
 <script setup>
-import firstHeader from '@/components/home/FirstHeader.vue'
+import firstHeader from '@/components/chat/header.vue'
 import content from '@/components/chat/content.vue'
 import send from '@/components/chat/send.vue'
 import { ref, watch } from 'vue'
@@ -41,8 +41,8 @@ watch(text, (newVal) => {
 
 <template>
   <div>
-    <!--    <firstHeader style="position: fixed"></firstHeader>-->
-    <!--    <content />-->
+    <firstHeader />
+    <content />
     <send style="position: fixed; bottom: 2vh" />
   </div>
   <!--      <div style="display: flex">-->

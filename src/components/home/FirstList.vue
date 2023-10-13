@@ -21,10 +21,10 @@
         <div class="picture-3d">ID-design</div>
         <div class="picture-3d">产品设计</div>
       </swiper-slide>
-      <swiper-slide class="swiper-slide">
+      <swiper-slide @click="router.push('/chat')" class="swiper-slide">
         <img src="@/assets/picture/主页3d图/3.svg" alt="" />
         <div class="picture-3d">honorary</div>
-        <div class="picture-3d">荣誉证书</div>
+        <div class="picture-3d">Chat-AI</div>
       </swiper-slide>
 
       <swiper-slide class="swiper-slide">

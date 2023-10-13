@@ -8,13 +8,19 @@ const formModel = ref()
 const useStore = useChatStore()
 
 let textGet = ref()
+
+//限制发消息时间
+const sendOnce = ref(true)
 const addItems = () => {
+  sendOnce.value = false
   if (!formModel.value) {
-    return ElMessage({
+    ElMessage({
       showClose: true,
       message: '你老几不能发空消息啊',
       type: 'warning'
     })
+    sendOnce.value = true
+    return
   }
 
   useStore.addChat({
@@ -30,7 +36,7 @@ const addItems = () => {
 
   axios({
     method: 'get',
-    url: 'http://localhost:5173/api',
+    url: 'https://qlrrnode.azurewebsites.net/users',
     params: {
       key: 'free',
       appid: 0,
@@ -39,6 +45,7 @@ const addItems = () => {
   }).then(
     (res) => {
       console.log(res.data)
+      sendOnce.value = true
       useStore.addChat({
         id: new Date(),
         type: 'GetContent',
@@ -63,33 +70,32 @@ const addItems = () => {
 //     content: formModel.value
 //   })
 // }
-const text = ref()
 
-const sends = () => {
-  textGet.value = encodeURIComponent(formModel.value)
-  axios({
-    method: 'get',
-    url: 'http://127.0.0.1:5000/students'
-    // params: {
-    //   key: 'free',
-    //   appid: 0,
-    //   msg: textGet.value
-    // }
-  }).then(
-    (res) => {
-      text.value = res.data.content
-      // console.log(res.data)
-      // useStore.addChat({
-      //   id: new Date(),
-      //   type: 'GetContent',
-      //   content: res.data.content
-      // })
-    },
-    (err) => {
-      console.log(err)
-    }
-  )
-}
+// const sends = () => {
+//   textGet.value = encodeURIComponent(formModel.value)
+//   axios({
+//     method: 'get',
+//     url: 'https://qlrrnode.azurewebsites.net/users'
+//     // params: {
+//     //   key: 'free',
+//     //   appid: 0,
+//     //   msg: textGet.value
+//     // }
+//   }).then(
+//     (res) => {
+//       text.value = res.data.content
+//       // console.log(res.data)
+//       // useStore.addChat({
+//       //   id: new Date(),
+//       //   type: 'GetContent',
+//       //   content: res.data.content
+//       // })
+//     },
+//     (err) => {
+//       console.log(err)
+//     }
+//   )
+// }
 
 // const sends = () => {
 //   //创建script标签
@@ -104,29 +110,29 @@ const sends = () => {
 </script>
 
 <template>
-  <!--  <div class="sendBox">-->
-  <!--    <el-form class="el-input" ref="form" size="large" autocomplete="off">-->
-  <!--      <el-form-item class="el-input3" prop="username">-->
-  <!--        <el-input @keyup.enter="addItems" v-model="formModel" placeholder="按回车键发送"></el-input>-->
-  <!--      </el-form-item>-->
-  <!--    </el-form>-->
-  <!--    <el-button @click="addItems" type="info">发送</el-button>-->
-  <!--  </div>-->
-  <div style="display: flex">
-    <input
-      v-model="text"
-      style="width: 200px; height: 50px; background-color: skyblue"
-      type="text"
-    />
-    <button @click="sends" style="width: 50px; height: 50px; cursor: pointer; margin-left: 10px">
-      点击发送
-    </button>
-    <input
-      v-model="text2"
-      style="width: 200px; height: 50px; background-color: skyblue; margin-top: 10px"
-      type="text"
-    />
+  <div class="sendBox">
+    <div class="el-input">
+      <el-input @keyup.enter="addItems" v-model="formModel" placeholder="按回车键发送"></el-input>
+    </div>
+    <el-button :loading="!sendOnce" style="margin-left: 10px" @click="addItems" type="info"
+      >发送</el-button
+    >
   </div>
+  <!--  <div style="display: flex">-->
+  <!--    <input-->
+  <!--      v-model="text"-->
+  <!--      style="width: 200px; height: 50px; background-color: skyblue"-->
+  <!--      type="text"-->
+  <!--    />-->
+  <!--    <button @click="sends" style="width: 50px; height: 50px; cursor: pointer; margin-left: 10px">-->
+  <!--      点击发送-->
+  <!--    </button>-->
+  <!--    <input-->
+  <!--      v-model="text2"-->
+  <!--      style="width: 200px; height: 50px; background-color: skyblue; margin-top: 10px"-->
+  <!--      type="text"-->
+  <!--    />-->
+  <!--  </div>-->
 </template>
 
 <style scoped>
@@ -148,7 +154,7 @@ const sends = () => {
   font-size: 18px;
 }
 .el-input {
-  height: 40px;
+  height: 35px;
   width: 50vw;
 }
 </style>

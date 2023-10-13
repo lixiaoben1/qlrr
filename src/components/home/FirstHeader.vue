@@ -78,7 +78,7 @@ import { ref, nextTick, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { gsap } from 'gsap'
-import 'boxicons'
+
 const unflip = ref(true)
 const autoFocus = ref(null)
 const router = useRouter()
