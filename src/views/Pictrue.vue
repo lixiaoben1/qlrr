@@ -891,7 +891,7 @@ onMounted(() => {
       style="width: 100vw; height: 50vh; background-color: black; font-size: 20px; color: red"
     ></div>
     <div class="pictureBox secondPage">
-      <img class="picture" src="@/assets/picture/产品展示.jpg" alt="" />
+      <img class="picture" src="@/assets/picture/产品展示最终.jpg" alt="" />
     </div>
     <div
       style="width: 100vw; height: 50vh; background-color: black; font-size: 20px; color: red"

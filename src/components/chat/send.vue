@@ -37,6 +37,7 @@ const addItems = () => {
   axios({
     method: 'get',
     url: 'https://qlrrnode.azurewebsites.net/users',
+    // url: 'https://qlrrnode.azurewebsites.net/users',
     params: {
       key: 'free',
       appid: 0,
