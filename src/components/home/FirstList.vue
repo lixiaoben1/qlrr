@@ -23,14 +23,14 @@
       </swiper-slide>
       <swiper-slide @click="router.push('/chat')" class="swiper-slide">
         <img src="@/assets/picture/主页3d图/3.svg" alt="" />
-        <div class="picture-3d">honorary</div>
         <div class="picture-3d">Chat-AI</div>
+        <div class="picture-3d">聊天机器人</div>
       </swiper-slide>
 
-      <swiper-slide class="swiper-slide">
+      <swiper-slide @click="router.push('/study')" class="swiper-slide">
         <img src="@/assets/picture/主页3d图/4.svg" alt="" />
         <div class="picture-3d">more</div>
-        <div class="picture-3d">敬请期待！</div>
+        <div class="picture-3d">考研资料！</div>
       </swiper-slide>
     </Swiper>
   </div>

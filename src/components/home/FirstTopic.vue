@@ -3,7 +3,7 @@
     <div class="topic">
       <div class="topic-item">
         <span class="topic-item-round">
-          <box-icon
+          <img
             style="
               opacity: 0.5;
               position: absolute;
@@ -12,10 +12,9 @@
               transform: translate(-50%, -50%);
               cursor: pointer;
             "
-            name="shopping-bag"
-            size="20px"
-          ></box-icon>
-          <!--          <img style="opacity: 0.5; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)" src="../assets/picture/图标/bx-shopping-bag.svg" alt="" />-->
+            src="@/assets/picture/图标/bx-shopping-bag.svg"
+            alt=""
+          />
         </span>
         <span
           data-id="1"
@@ -29,9 +28,9 @@
         >
       </div>
       <hr />
-      <div class="topic-item">
-        <span class="topic-item-round"
-          ><box-icon
+      <div @click="router.push('/chat')" class="topic-item">
+        <span class="topic-item-round">
+          <img
             style="
               opacity: 0.5;
               position: absolute;
@@ -40,9 +39,9 @@
               transform: translate(-50%, -50%);
               cursor: pointer;
             "
-            name="message-dots"
-            size="20px"
-          ></box-icon>
+            src="@/assets/picture/图标/bx-message-square-dots.svg"
+            alt=""
+          />
         </span>
         <span
           data-id="2"
@@ -57,20 +56,20 @@
       </div>
       <hr />
       <div @click="router.push('/ppt')" class="topic-item">
-        <span class="topic-item-round"
-          ><box-icon
+        <span class="topic-item-round">
+          <img
             style="
               opacity: 0.5;
               position: absolute;
-              top: 42%;
+              top: 50%;
               left: 50%;
               transform: translate(-50%, -50%);
               cursor: pointer;
             "
-            name="popsicle"
-            size="20px"
-          ></box-icon
-        ></span>
+            src="@/assets/picture/图标/bx-popsicle.svg"
+            alt=""
+          />
+        </span>
         <span
           data-id="3"
           style="

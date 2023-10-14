@@ -39,6 +39,10 @@ const router = createRouter({
     {
       path: '/ppt',
       component: () => import('@/views/PPT.vue')
+    },
+    {
+      path: '/study',
+      component: () => import('@/views/StudyAssets.vue')
     }
     // {
     //   path: '/demo',

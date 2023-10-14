@@ -421,6 +421,78 @@ onMounted(() => {
         </div>
       </div>
     </div>
+    <div class="thirdPage">
+      <div class="thirdPageBox">
+        <div
+          style="
+            position: absolute;
+            font-size: 40px;
+            font-weight: bold;
+            color: black;
+            left: 30px;
+            top: 11vh;
+            font-family: '得意黑 斜体', serif;
+          "
+        >
+          产品设计
+        </div>
+        <div
+          class="textBox"
+          style="
+            line-height: 5vh;
+            max-width: 75vw;
+            position: absolute;
+            font-size: 15px;
+            color: black;
+            left: 30px;
+            top: 20vh;
+            text-align: justify;
+            vertical-align: middle;
+          "
+        >
+          <div class="text">
+            我从大一就开始对于设计领域表现出了浓厚的兴趣,不断的在这个行业深耕，先后学习了ps，ai等平面设计软件，但随着学习的深入，我发现我并不喜欢平面设计，随后便转向了视频剪辑，影视后期领域，先后学习了final
+            cut
+            pro视频剪辑软件，随着剪辑的深入，又去学习了AE企图制作一些炫酷的特效，也尝试做了一些视频，最后抓住了面试的机会，成功加入到了大庆市新媒体工作中心，担任视频剪辑的职务，但这并没有限制我对于现状的满足，我又开始学习了C4D，Rhino等3D建模软件，同时学习渲染等技术，最终，我找到了最感兴趣的领域，工业ID设计领域，并在本科期间多次接单制作大创项目的建模以及渲染，并与工厂对接，3d打印出模，但无奈本科期间的时间终归是有限的，在学习这些爱好期间，我也没有忽视专业知识的学习，后来在一次机缘巧合下，我接触了前端。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="thirdPage">
+      <div class="thirdPageBox">
+        <div
+          style="
+            position: absolute;
+            font-size: 40px;
+            font-weight: bold;
+            color: black;
+            left: 30px;
+            top: 11vh;
+            font-family: '得意黑 斜体', serif;
+          "
+        >
+          前端开发
+        </div>
+        <div
+          class="textBox"
+          style="
+            line-height: 5vh;
+            max-width: 75vw;
+            position: absolute;
+            font-size: 15px;
+            color: black;
+            left: 30px;
+            top: 20vh;
+            text-align: justify;
+            vertical-align: middle;
+          "
+        >
+          <div class="text">
+            我在本科期间学习前端开发或许并不足为奇，我从高一开始，就对于计算机非常感兴趣，在高二的数学课堂上，我就开始学习了C语言，但是由于高考的压力，我并没有继续深入学习，但是我对于计算机的兴趣并没有减少，我在大一的时候，因为营销号的广告就开始学习了python，但是由于非科班出生，我并没有继续深入学习，直到大三的时候，我开始学习了前端开发，我学习了html，css，js，node等技术，我也在学习的过程中，接触了一些前端框架，最终选择了vue，本网站便是我用vue搭建的，但是本科阶段短短四年还是过于短暂，我并没有学习完所有的知识，但是我相信，在未来的人生当中我仍旧会坚持自己的爱好，不断的学习，不断的进步。
+          </div>
+        </div>
+      </div>
+    </div>
     <div style="height: 400px; background-color: #ebebeb"></div>
   </div>
 </template>
@@ -448,7 +520,7 @@ onMounted(() => {
 }
 
 .secondPage {
-  height: 100vh;
+  height: 115vh;
   position: relative;
   z-index: 0;
   overflow: hidden;
@@ -456,7 +528,26 @@ onMounted(() => {
 }
 .secondPageBox {
   width: 90vw;
-  height: 95vh;
+  height: 110vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-image: url('@/assets/picture/水墨风背景.jpg');
+  background-size: cover;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.thirdPage {
+  height: 140vh;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #eaeaea;
+}
+.thirdPageBox {
+  width: 90vw;
+  height: 135vh;
   position: absolute;
   top: 50%;
   left: 50%;

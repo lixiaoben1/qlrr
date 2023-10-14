@@ -1,19 +1,19 @@
 <template>
   <div class="top-banner">
-    <box-icon
+    <img
       v-show="!unflipMenu"
       @click="unflipMenu = !unflipMenu"
-      pull="right"
-      size="40px"
-      name="x"
-    ></box-icon>
-    <box-icon
+      style="opacity: 0.5; margin-left: 15px; width: 50px; cursor: pointer"
+      src="@/assets/picture/图标/bx-x.svg"
+      alt=""
+    />
+    <img
       v-show="unflipMenu"
       @click="unflipMenu = !unflipMenu"
-      pull="right"
-      size="40px"
-      name="menu"
-    ></box-icon>
+      style="opacity: 0.5; margin-left: 15px; width: 50px; cursor: pointer"
+      src="@/assets/picture/图标/bx-menu.svg"
+      alt=""
+    />
     <div class="logo">QLRR</div>
     <div class="topbar-nav">
       <div class="search">
@@ -27,16 +27,18 @@
           />
         </div>
         <a @click="flip" href="#">
-          <box-icon
+          <img
             style="
               opacity: 0.5;
               position: absolute;
-              top: 50%;
+              top: 42%;
               left: 50%;
               transform: translate(-50%, -50%);
+              cursor: pointer;
             "
-            name="search"
-          ></box-icon>
+            src="@/assets/picture/图标/bx-search.svg"
+            alt=""
+          />
         </a>
       </div>
       <div @click="toLogin" class="login-top">
