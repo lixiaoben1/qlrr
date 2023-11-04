@@ -24,7 +24,7 @@ watch(chapters, (newVal) => {
   <div>
     <div class="container">
       <ul class="items">
-        <li><a href="/study/allFile">药品汇总</a></li>
+        <li><router-link to="/study/allFile">药品汇总</router-link></li>
         <li>
           <select v-model="chapters" name="chapters" id="ssss">
             <option value="">选择科目</option>
