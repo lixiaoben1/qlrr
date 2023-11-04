@@ -42,7 +42,17 @@ const router = createRouter({
     },
     {
       path: '/study',
-      component: () => import('@/views/StudyAssets.vue')
+      component: () => import('@/views/StudyAssets.vue'),
+      children: [
+        {
+          path: 'heartFailure',
+          component: () => import('@/components/study/heartFailure.vue')
+        },
+        {
+          path: 'allFile',
+          component: () => import('@/components/study/allFile.vue')
+        }
+      ]
     }
     // {
     //   path: '/demo',

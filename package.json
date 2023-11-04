@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
+    "@vue-office/pdf": "^1.5.4",
     "axios": "^1.5.1",
     "boxicons": "^2.1.4",
     "element-plus": "^2.3.12",
@@ -22,6 +23,7 @@
     "pixi.js": "^7.3.1",
     "swiper": "^9.4.1",
     "vue": "^3.3.4",
+    "vue-demi": "0.13.11",
     "vue-konva": "^3.0.2",
     "vue-router": "^4.2.4",
     "vue-waterfall-plugin-next": "^2.2.3"
