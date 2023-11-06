@@ -14,6 +14,10 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 import * as PIXI from 'pixi.js'
+//删除加载动画
+onMounted(() => {
+  document.querySelector('.loadingMask').remove()
+})
 
 gsap.registerPlugin(PixiPlugin, ScrollTrigger)
 PixiPlugin.registerPIXI(PIXI)

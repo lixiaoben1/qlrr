@@ -18,13 +18,11 @@ import FirstHeader from '@/components/home/FirstHeader.vue'
 import FirstList from '@/components/home/FirstList.vue'
 import FirstTopic from '@/components/home/FirstTopic.vue'
 import SecondList from '@/components/home/SecondList.vue'
-import { onMounted, watch } from 'vue'
+import { onMounted } from 'vue'
 import { gsap } from 'gsap'
-import { useRoute } from 'vue-router'
-const route = useRoute()
+//删除加载标签
+document.querySelector('.loadingMask').remove()
 
-// import FirstFooter from './components/FirstFooter'
-//   components: { FirstTopic, FirstHeader, FirstList, SecondList }
 onMounted(() => {
   gsap.from('.todo-wrap>*', {
     duration: 1,

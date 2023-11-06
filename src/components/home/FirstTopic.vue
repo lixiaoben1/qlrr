@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="topic">
-      <div class="topic-item">
+      <div @click="router.push('/study')" class="topic-item">
         <div class="topic-item-round">
           <img
             style="opacity: 0.5; cursor: pointer"
@@ -10,6 +10,7 @@
           />
         </div>
         <div
+          @click="router.push('/study')"
           data-id="1"
           style="
             vertical-align: middle;
@@ -18,7 +19,7 @@
             cursor: pointer;
           "
         >
-          Shopping store
+          Postgraduate materials
         </div>
       </div>
       <hr />

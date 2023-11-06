@@ -94,6 +94,10 @@ import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
 
+onMounted(() => {
+  document.querySelector('.loadingMask').remove()
+})
+
 const useStore = useUserStore()
 const isLogin = ref(true)
 const router = useRouter()

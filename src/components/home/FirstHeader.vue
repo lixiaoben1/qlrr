@@ -58,8 +58,12 @@
       <li @click="router.push('/picture')">
         产品渲染<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
       </li>
-      <li>荣誉证书<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
-      <li>我的作品<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+      <li @click="router.push('/me')">
+        荣誉证书<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+      </li>
+      <li @click="router.push('/picture')">
+        我的作品<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+      </li>
       <li @click="router.push('/chat')">
         智能聊天机器人<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
       </li>
@@ -67,7 +71,9 @@
         PPT<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
       </li>
       <hr />
-      <li>与我联系<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon></li>
+      <li @click="router.push('/me')">
+        与我联系<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+      </li>
     </ul>
   </div>
   <Transition name="masked">

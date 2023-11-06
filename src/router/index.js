@@ -65,4 +65,23 @@ const router = createRouter({
   ]
 })
 
+// 添加路由守卫
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login' || to.path === '/me' || to.path === '/picture') {
+    const louder = document.createElement('div')
+    louder.className = 'loadingMask'
+    document.body.insertBefore(louder, document.body.firstChild)
+    const loaderMask = document.createElement('div')
+    loaderMask.className = 'loaderMask'
+    louder.appendChild(loaderMask)
+
+    const loaders = document.createElement('span')
+    loaders.className = 'loader'
+    loaderMask.appendChild(loaders)
+    next()
+  }
+
+  next()
+})
+
 export default router
