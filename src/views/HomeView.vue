@@ -21,7 +21,11 @@ import SecondList from '@/components/home/SecondList.vue'
 import { onMounted } from 'vue'
 import { gsap } from 'gsap'
 //删除加载标签
-document.querySelector('.loadingMask').remove()
+onMounted(() => {
+  if (document.querySelector('.loadingMask')) {
+    document.querySelector('.loadingMask').remove()
+  }
+})
 
 onMounted(() => {
   gsap.from('.todo-wrap>*', {

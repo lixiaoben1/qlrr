@@ -95,7 +95,9 @@ import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
 
 onMounted(() => {
-  document.querySelector('.loadingMask').remove()
+  if (document.querySelector('.loadingMask')) {
+    document.querySelector('.loadingMask').remove()
+  }
 })
 
 const useStore = useUserStore()

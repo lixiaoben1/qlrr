@@ -2,14 +2,15 @@
 import { onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ref } from 'vue'
 import { PixiPlugin } from 'gsap/PixiPlugin'
 
 import * as PIXI from 'pixi.js'
 
 //删除加载动画
 onMounted(() => {
-  document.querySelector('.loadingMask').remove()
+  if (document.querySelector('.loadingMask')) {
+    document.querySelector('.loadingMask').remove()
+  }
 })
 
 gsap.registerPlugin(PixiPlugin, ScrollTrigger)
