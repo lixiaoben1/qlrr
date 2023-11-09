@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 // 引入路由组件
 import { useRouter } from 'vue-router'
 // 引入路由
@@ -7,6 +7,12 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const chapters = ref('')
+
+onMounted(() => {
+  if (document.querySelector('.loadingMask')) {
+    document.querySelector('.loadingMask').remove()
+  }
+})
 watch(chapters, (newVal) => {
   if (newVal === '心衰药') {
     router.push('/study/heartFailure')
@@ -24,7 +30,9 @@ watch(chapters, (newVal) => {
   <div>
     <div class="container">
       <ul class="items">
-        <li><router-link to="/study/allFile">药品汇总</router-link></li>
+        <li>
+          <div style="cursor: pointer" @click="router.replace('/study/allFile')">药品汇总</div>
+        </li>
         <li>
           <select v-model="chapters" name="chapters" id="ssss">
             <option value="">选择科目</option>
@@ -32,23 +40,19 @@ watch(chapters, (newVal) => {
             <option value="抗高血压药">抗高血压药</option>
           </select>
         </li>
-        <li>复习资料</li>
+        <li>
+          <div style="cursor: pointer" @click="router.replace('/study/iframe')">复习资料</div>
+        </li>
       </ul>
     </div>
     <div class="content">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </div>
   </div>
-  <!--  <div>-->
-  <!--    <vue-office-pdf :src="pdf" />-->
-  <!--    <div style="width: 100vw; height: 500px">-->
-  <!--      <img-->
-  <!--        style="width: 100%"-->
-  <!--        src="https://s1.imagehub.cc/images/2023/10/14/2c4529ccad4ca01729b8927716f53999.jpeg"-->
-  <!--        alt="2c4529ccad4ca01729b8927716f53999.jpeg"-->
-  <!--      />-->
-  <!--    </div>-->
-  <!--  </div>-->
 </template>
 
 <style scoped>

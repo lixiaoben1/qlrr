@@ -1,27 +1,28 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      component: () => import('@/views/HomeView.vue')
+      component: () => import('@/views/HomeView.vue'),
+      meta: { isLoading: true }
     },
     {
       path: '/user',
+      meta: { isLoading: true },
       component: () => import('@/views/UserProfile.vue')
     },
 
     {
       path: '/login',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      meta: { isLoading: true },
       component: () => import('@/views/Login.vue')
     },
     {
       path: '/picture',
+      meta: { isLoading: true },
       component: () => import('@/views/Pictrue.vue')
     },
     // {
@@ -30,18 +31,22 @@ const router = createRouter({
     // },
     {
       path: '/me',
+      meta: { isLoading: true },
       component: () => import('@/views/MyIntroduction.vue')
     },
     {
       path: '/chat',
+      meta: { isLoading: true },
       component: () => import('@/views/ChatAI.vue')
     },
     {
       path: '/ppt',
+      meta: { isLoading: true },
       component: () => import('@/views/PPT.vue')
     },
     {
       path: '/study',
+      meta: { isLoading: true },
       component: () => import('@/views/StudyAssets.vue'),
       children: [
         {
@@ -51,23 +56,19 @@ const router = createRouter({
         {
           path: 'allFile',
           component: () => import('@/components/study/allFile.vue')
+        },
+        {
+          path: 'iframe',
+          component: () => import('@/components/study/iframe.vue')
         }
       ]
     }
-    // {
-    //   path: '/demo',
-    //   component: () => import('@/views/demo.vue')
-    // }
-    // {
-    //   path: '/konva',
-    //   component: () => import('@/views/Konva.vue')
-    // },
   ]
 })
 
 // 添加路由守卫
 router.beforeEach((to, from, next) => {
-  if (to.path === '/login' || to.path === '/me' || to.path === '/picture') {
+  if (to.meta.isLoading) {
     const louder = document.createElement('div')
     louder.className = 'loadingMask'
     document.body.insertBefore(louder, document.body.firstChild)
@@ -80,8 +81,14 @@ router.beforeEach((to, from, next) => {
     loaderMask.appendChild(loaders)
     next()
   }
+})
 
-  next()
+// 路由跳转后
+router.afterEach((to) => {
+  if (to.meta.isLoading) {
+    const louder = document.querySelector('.loadingMask')
+    louder.remove()
+  }
 })
 
 export default router

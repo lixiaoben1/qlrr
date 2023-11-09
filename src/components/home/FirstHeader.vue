@@ -117,7 +117,6 @@ onMounted(() => {
   tween = gsap.to('.login-top', {
     duration: 1,
     rotationY: 360,
-    repeat: 1,
     delay: 1
   })
 })

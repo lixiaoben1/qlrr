@@ -57,12 +57,10 @@ const swiperValue = reactive({
 })
 const swiper = ref()
 const onSwiper = (swiper) => {
-  setTimeout(() => {
-    swiper.slideTo(1, 1000, false)
-  }, 1000)
+  swiper.slideTo(1, 0, false)
   setTimeout(() => {
     swiper.slideTo(0, 1000, false)
-  }, 2000)
+  }, 1000)
 }
 </script>
 
