@@ -2,16 +2,17 @@
 import firstHeader from '@/components/chat/header.vue'
 import content from '@/components/chat/content.vue'
 import send from '@/components/chat/send.vue'
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import axios from 'axios'
 
 const text = ref()
 let textGet = ref()
 const text2 = ref()
-// const login = async () => {
-//   const res = await getData()
-//   console.log('结果是：', res.data)
-// }
+onMounted(() => {
+  if (document.querySelector('.loadingMask')) {
+    document.querySelector('.loadingMask').remove()
+  }
+})
 const sends = () => {
   axios({
     method: 'get',

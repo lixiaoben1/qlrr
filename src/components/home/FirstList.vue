@@ -3,8 +3,7 @@
     <Swiper
       ref="swiper1"
       class="swiper-container"
-      :modules="modules"
-      :slidesPerView="2.26"
+      :slidesPerView="swiperValue.slidesPerView"
       :slides-offset-before="swiperValue.slidesOffsetBefore"
       space-between="15"
       :freeMode="true"
@@ -37,25 +36,24 @@
 </template>
 
 <script setup>
-// import Swiper from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-// import { Autoplay, Scrollbar, FreeMode } from 'swiper/modules'
 import { useRouter } from 'vue-router'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-// import 'swiper/css'
-// import 'swiper/css/autoplay'
-import { reactive, ref } from 'vue'
-// const modules = [Autoplay, Scrollbar, FreeMode]
+import { onMounted, ref } from 'vue'
 const router = useRouter()
 
-const swiperValue = reactive({
+const swiperValue = ref({
   slidesPerView: 2.26,
   slidesOffsetBefore: window.innerWidth * 0.05
 })
-const swiper = ref()
+onMounted(() => {
+  if (window.innerWidth > 1000) {
+    swiperValue.value.slidesPerView = 4.26
+  }
+})
 const onSwiper = (swiper) => {
   swiper.slideTo(1, 0, false)
   setTimeout(() => {

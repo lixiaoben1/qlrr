@@ -749,57 +749,7 @@ onMounted(() => {
     '<'
   )
 })
-// regioncanvas部分
-// onMounted(() => {
-//   let canvas = document.getElementById('canvas'),
-//     $ = canvas.getContext('2d'),
-//     w = (canvas.width = window.innerWidth * devicePixelRatio),
-//     h = (canvas.height = window.innerHeight * 0.55 * devicePixelRatio),
-//     t = 0,
-//     num = 400,
-//     u = 0,
-//     _u,
-//     s,
-//     a,
-//     b,
-//     x,
-//     y,
-//     _x,
-//     _y,
-//     _t = 1 / 800
-//
-//   let anim = function () {
-//     $.globalCompositeOperation = 'source-over'
-//     $.fillStyle = 'hsla(0,0%,0%,0.75)'
-//     $.fillRect(0, 0, w, h)
-//     $.globalCompositeOperation = 'lighter'
-//     for (let i = 0; i < 2; i++) {
-//       x = 0
-//       _u = u / 2 + i
-//       $.beginPath()
-//       for (let j = 0; j < num; j++) {
-//         x -= 2 * Math.sin(4)
-//         y = (x * Math.sin(i + 3.0 * t + x / 20)) / 2
-//         _x = x * Math.cos(b) - y * Math.sin(b)
-//         _y = x * Math.sin(b) + y * Math.cos(b)
-//         b = (j * 3 * Math.PI) / 6.8
-//         $.lineWidth = 0.78
-//         $.arc(w / 2 - _x, h / 2 - _y, 0.5, 0, 2 * Math.PI)
-//       }
-//       // 设置线性渐变
-//       let g = $.createLinearGradient(w / 2 + _x, h / 2 + _y, 0, w / 2 + _x, h / 2 + _y)
-//       g.addColorStop(0.0, `hsla(${u}, 40%, 40%, 0.4)`)
-//       g.addColorStop(0.5, `hsla(${_u},40%, 40%, 0.4)`)
-//       $.strokeStyle = g
-//       $.stroke()
-//     }
-//     t += _t
-//     u += 0.5
-//     window.requestAnimationFrame(anim)
-//   }
-//   anim()
-// })
-// endregion的canvas部分
+
 </script>
 
 <template>

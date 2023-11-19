@@ -3,7 +3,6 @@
     <Swiper
       ref="swiper1"
       class="swiper-container"
-      :modules="modules"
       :slidesPerView="2.26"
       :slides-offset-before="swiperValue.slidesOffsetBefore"
       space-between="15"

@@ -53,26 +53,30 @@
   <div :class="{ menuPopUp: !unflipMenu, menu: unflipMenu }">
     <ul class="menu-item">
       <li @click="router.push('/me')">
-        个人简介<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+        个人简介<img class="right-arrow" src="@/assets/picture/图标/bx-chevron-right.svg" alt="" />
       </li>
       <li @click="router.push('/picture')">
-        产品渲染<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+        产品渲染<img class="right-arrow" src="@/assets/picture/图标/bx-chevron-right.svg" alt="" />
       </li>
       <li @click="router.push('/me')">
-        荣誉证书<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+        荣誉证书<img class="right-arrow" src="@/assets/picture/图标/bx-chevron-right.svg" alt="" />
       </li>
       <li @click="router.push('/picture')">
-        我的作品<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+        我的作品<img class="right-arrow" src="@/assets/picture/图标/bx-chevron-right.svg" alt="" />
       </li>
       <li @click="router.push('/chat')">
-        智能聊天机器人<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+        智能聊天机器人<img
+          class="right-arrow"
+          src="@/assets/picture/图标/bx-chevron-right.svg"
+          alt=""
+        />
       </li>
       <li @click="router.push('/ppt')">
-        PPT<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+        PPT<img class="right-arrow" src="@/assets/picture/图标/bx-chevron-right.svg" alt="" />
       </li>
       <hr />
       <li @click="router.push('/me')">
-        与我联系<box-icon class="right-arrow" size="30px" name="chevron-right"></box-icon>
+        与我联系<img class="right-arrow" src="@/assets/picture/图标/bx-chevron-right.svg" alt="" />
       </li>
     </ul>
   </div>
@@ -206,9 +210,11 @@ watch(unflipMenu, () => {
   color: mediumpurple;
 }
 .right-arrow {
+  opacity: 0.5;
+  cursor: pointer;
   float: right;
   margin-right: 10px;
-  vertical-align: middle;
+  margin-top: 3px;
 }
 
 .top-banner {
