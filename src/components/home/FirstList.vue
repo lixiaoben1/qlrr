@@ -12,24 +12,24 @@
       <!-- shadow -->
       <swiper-slide class="swiper-slide">
         <img @click="router.push('/me')" src="@/assets/picture/主页3d图/5.svg" alt="" />
-        <div class="picture-3d">First</div>
+        <div class="picture-3d">First project</div>
         <div class="picture-3d">项目一：大数据餐厅管理面板</div>
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img @click="router.push('/picture')" src="@/assets/picture/主页3d图/7.svg" alt="" />
+        <img @click="router.push('/second_project')" src="@/assets/picture/主页3d图/7.svg" alt="" />
+        <div class="picture-3d">Second project</div>
+        <div class="picture-3d">项目二：共同观影平台</div>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide">
+        <img @click="router.push('/picture')" src="@/assets/picture/主页3d图/3.svg" alt="" />
         <div class="picture-3d">ID-design</div>
         <div class="picture-3d">产品设计</div>
       </swiper-slide>
-      <swiper-slide class="swiper-slide">
-        <img @click="router.push('/chat')" src="@/assets/picture/主页3d图/3.svg" alt="" />
-        <div class="picture-3d">Chat-AI</div>
-        <div class="picture-3d">聊天机器人</div>
-      </swiper-slide>
 
       <swiper-slide class="swiper-slide">
-        <img @click="router.push('/study')" src="@/assets/picture/主页3d图/4.svg" alt="" />
-        <div class="picture-3d">more</div>
-        <div class="picture-3d">考研资料！</div>
+        <img @click="router.push('/chat')" src="@/assets/picture/主页3d图/4.svg" alt="" />
+        <div class="picture-3d">Chat-AI</div>
+        <div class="picture-3d">聊天机器人</div>
       </swiper-slide>
     </Swiper>
   </div>

@@ -35,6 +35,11 @@ const router = createRouter({
       component: () => import('@/views/Restuarant.vue')
     },
     {
+      path: '/second_project',
+      meta: { isLoading: true },
+      component: () => import('@/views/SecondMovies.vue')
+    },
+    {
       path: '/chat',
       meta: { isLoading: true },
       component: () => import('@/views/ChatAI.vue')
