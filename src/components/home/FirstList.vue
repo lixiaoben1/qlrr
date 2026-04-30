@@ -11,12 +11,12 @@
     >
       <!-- shadow -->
       <swiper-slide class="swiper-slide">
-        <img @click="router.push('/me')" src="@/assets/picture/主页3d图/5.svg" alt="" />
+        <img @click="goToExternal" src="@/assets/picture/主页3d图/5.svg" alt="" />
         <div class="picture-3d">First project</div>
         <div class="picture-3d">项目一：大数据餐厅管理面板</div>
       </swiper-slide>
       <swiper-slide class="swiper-slide">
-        <img @click="router.push('/second_project')" src="@/assets/picture/主页3d图/7.svg" alt="" />
+        <img @click="goToExternal2" src="@/assets/picture/主页3d图/7.svg" alt="" />
         <div class="picture-3d">Second project</div>
         <div class="picture-3d">项目二：共同观影平台</div>
       </swiper-slide>
@@ -60,6 +60,14 @@ const onSwiper = (swiper) => {
     swiper.slideTo(0, 1000, false)
   }, 1000)
 }
+
+const goToExternal = () => {
+  window.location.href = 'https://restaurant.a2353058191.workers.dev'
+}
+
+const goToExternal2 = () => {
+  window.location.href = 'https://movies.a2353058191.workers.dev'
+}
 </script>
 
 <style scoped>
@@ -86,7 +94,7 @@ body {
   top: 20px;
   width: 100%;
   height: 210px;
-  font-size: 18px;
+  font-size: 12px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 35px;
   backdrop-filter: blur(8px);

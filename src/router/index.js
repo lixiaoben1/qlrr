@@ -29,16 +29,16 @@ const router = createRouter({
     //   path: '/konva',
     //   component: () => import('@/views/Konva.vue')
     // },
-    {
-      path: '/me',
-      meta: { isLoading: true },
-      component: () => import('@/views/Restuarant.vue')
-    },
-    {
-      path: '/second_project',
-      meta: { isLoading: true },
-      component: () => import('@/views/SecondMovies.vue')
-    },
+    // {
+    //   path: '/me',
+    //   meta: { isLoading: true },
+    //   component: () => import('@/views/Restuarant.vue')
+    // },
+    // {
+    //   path: '/second_project',
+    //   meta: { isLoading: true },
+    //   component: () => import('@/views/SecondMovies.vue')
+    // },
     {
       path: '/chat',
       meta: { isLoading: true },

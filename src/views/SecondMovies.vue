@@ -1,5 +1,5 @@
 <script setup lang="ts">
-window.location.href = 'https://movies.a2353058191.workers.dev'
+// window.location.replace = 'https://movies.a2353058191.workers.dev'
 </script>
 
 <template></template>
